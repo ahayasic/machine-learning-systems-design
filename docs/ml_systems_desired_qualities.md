@@ -46,13 +46,13 @@ A Tabela abaixo contém algumas dicas de como garantir reprodutibilidade em dife
 
 _**Fonte.** [ml-ops.org](https://ml-ops.org/content/end-to-end-ml-workflow)_ 
 
-### Leitura Adicional
--   [Chapter 3.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 4.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 6.7 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 10: Model and Data Life Cycle Management - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   Chapter 1.x: Responsible AI
--   Chapter 5.x: From Novice to Master Predictor: Maximizing Convolutional Neural Network Accuracy
+??? summary "Leitura Adicional"
+    -   [Chapter 3.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 4.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 6.7 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 10: Model and Data Life Cycle Management - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020](https://www.amazon.com.br/   Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   Chapter 1.x: Responsible AI
+    -   Chapter 5.x: From Novice to Master Predictor: Maximizing Convolutional Neural Network Accuracy
 
 ## Qualidade \#2: Tracking de Experimentos
 
@@ -89,12 +89,11 @@ Assim, cada atualização nos dados deve produzir uma nova versão no repositór
 
 - Os três devem ser implantados e/ou revertidos ao mesmo tempo.
 
-### Leitura Adicional
-
--   [Chapter 3.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 4.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 6.7 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   [Chapter 3.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 4.12 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 6.7 - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#4: Teste
 
@@ -134,19 +133,17 @@ Os Testes em Infraestrutura do Modelo visam garantir a estabilidade, corretude e
 - **Teste de Desempenho do Modelo em Desenvolvimento e Produção.** Garantir que o desempenho do modelo no ambiente de desenvolvimento seja semelhante no ambiente de produção.
 - **Testes de Integração.** Garantir que todo o pipeline, de todos os três artefatos, devem estar com a integração apropriadamente testada.
 
-### Leitura Adicional
-
--   [Chapter 7: Model Evaluation - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [Chapter 2: Create a Plan - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   [Chapter 3: Build Your First End-to-End Pipeline - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   [Chapter 6: Debug Your ML Problems - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   [Chapter 10: Build Safeguards for Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   Chapter 3.x: Test the Model
--   Chapter 5.x: Common Techniques for Machine Learning Experimentation
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
-
--   [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf)
+??? summary "Leitura Adicional"
+    -   [Chapter 7: Model Evaluation - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [Chapter 2: Create a Plan - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/  Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [Chapter 3: Build Your First End-to-End Pipeline - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/ Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [Chapter 6: Debug Your ML Problems - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/ Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [Chapter 10: Build Safeguards for Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/ Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/ Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   Chapter 3.x: Test the Model
+    -   Chapter 5.x: Common Techniques for Machine Learning Experimentation
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+    -   [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/ aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf)
 
 ## Qualidade \#4: Automação
 
@@ -173,11 +170,9 @@ Ao mesmo tempo, também há necessidade de novas estratégias de [continuidade],
 - **Continuous Training (CT)**. Re-treinamento e re-deployment de modelo executados continuamente de forma automática.
 - **Continuous Monitoring (CM).** Monitoramento tanto dos dados quanto modelo em produção através de métricas que expressam o objetivo do negócio.
 
-### Leitura Adicional
-
--   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
-
--   [MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/solutions/machine-learning/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#top_of_page)
+??? summary "Leitura Adicional"
+    -   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/   Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/solutions/machine-learning/    mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#top_of_page)
 
 ## Qualidade \#5: Monitoramento
 
@@ -198,12 +193,11 @@ Algumas ações que podem ser tomadas são:
 
 ![image-20210211164928195](assets/img/image-20210211164928195.png)
 
-### Leitura Adicional
-
--   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/Building-Machine-Learning-Powered-Applications/dp/149204511X)
--   [Chapter 9.4: Model Monitoring - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
--   [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf)
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   [Chapter 11: Monitor and Update Models - Ameisen, Emmanuel. *Building Machine Learning Powered Applications*. O’Reilly Media, 2020.](https://www.amazon.com.br/   Building-Machine-Learning-Powered-Applications/dp/149204511X)
+    -   [Chapter 9.4: Model Monitoring - Burkov, Andriy. *Machine Learning Engineering*. True Positive Incorporated, 2020](http://www.mlebook.com/)
+    -   [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/   aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf)
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#6: Alta Disponibilidade
 
@@ -217,9 +211,8 @@ Para a maioria de *players* sérios (e.g Amazon, Google Facebook), a disponibili
 
 ![image-20210218102836811](assets/img/image-20210218102836811.png)
 
-### Leitura Adicional
-
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#7: Escalabilidade (Horizontal)
 
@@ -230,9 +223,8 @@ O tráfego gerenciado por serviços de produção quase nunca é uniforme em um 
 
 Portanto, construir um sistema escalável e capaz de lidar com muitas requisições em diferentes situações é fundamental.
 
-### Leitura Adicional
-
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#8: Baixa Latência
 
@@ -251,23 +243,22 @@ Portanto, tempo é dinheiro e aplicações de ML também devem contar com baixa 
 
 - Note ainda que a latência pode aumentar se a aplicação não for escalada para fornecer recursos adequados. Assim, latência, alta disponibilidade e escalabilidade estão interligadas.
 
-### Leitura Adicional
-
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#9: Disponibilidade Geográfica
 
 > TODO
 
-### Leitura Adicional
-
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#10: Tolerância à Falhas
 
 > TODO
 
--   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
+??? summary "Leitura Adicional"
+    -   Chapter 9.x: Desirable Qualities in a Production-Level Serving System
 
 ## Qualidade \#11: Segurança
 

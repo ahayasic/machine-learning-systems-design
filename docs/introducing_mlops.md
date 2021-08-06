@@ -1,8 +1,9 @@
-> *(**en_US**) **Disclaimer:** This post is a translation (into pt_BR) of my post [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) originally published on [Daitan\'s](https://medium.com/daitan-tech) blog.*
+# Design de Sistemas de ML & MLOps
 
-> *(**pt_BR**) **Aviso:** Esta publicação é uma tradução (para pt_BR) do meu artigo [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) publicado originalmente no blog da [Daitan](https://medium.com/daitan-tech).*
+!!! attention "Attention! Atenção!"
+    **(en_US)** This post is a translation (into pt_BR) of my post [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) originally published on [Daitan's](https://medium.com/daitan-tech) blog.
 
-<br />
+    **(pt_BR)** Esta publicação é uma tradução (para pt_BR) do meu artigo [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) publicado originalmente no blog da [Daitan](https://medium.com/daitan-tech).
 
 Ciência de dados e aprendizado de máquina (ML, do inglês machine learning) têm se tornado estratégias prioritárias na resolução de diversos problemas complexos do mundo real.
 
@@ -13,17 +14,17 @@ Porém, embora implementar e treinar modelos de ML não sejam tarefas triviais, 
 
 Afinal, para tirarmos máximo proveito de um modelo ML, precisamos colocá-lo em produção.
 
-Contudo, de acordo com o relatório [\"2020 State of Enterprise Machine Learning\"](https://bit.ly/3e7HfaQ) da Algorithmia.
+Contudo, de acordo com o relatório ["2020 State of Enterprise Machine Learning"](https://bit.ly/3e7HfaQ) da Algorithmia.
 
 - A maior parte das empresas ainda não descobriram como atingir seus objetivos de ML/IA pois a lacuna entre a construção do modelo de ML e o deploy é desafiadora.
 - Apenas [22% das companhias](https://designingforanalytics.com/resources/failure-rates-for-analytics-bi-iot-and-big-data-projects-85-yikes/) que usam aprendizado de máquina implantaram com sucesso um modelo de ML em produção.
 
 Ao mesmo tempo, a própria construção do modelo e avaliação deste em escala é uma tarefa complicada.
 
-- Em aplicações do \"mundo real\", avaliar o desempenho e impacto do modelo no problema que se busca resolver vai muito além de uma simples experimentação de *\"treino e teste\"*.
+- Em aplicações do "mundo real", avaliar o desempenho e impacto do modelo no problema que se busca resolver vai muito além de uma simples experimentação de *"treino e teste"*.
 - Também é necessário levar em conta questões como complexidade do algoritmo, velocidade de inferência e enviesamento.
 
-Além disso, de acordo com o artigo [\"Hidden Technical Debt in Machine Learning Systems\"](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+Além disso, de acordo com o artigo ["Hidden Technical Debt in Machine Learning Systems"](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
 
 - Apenas uma pequena fração dos sistemas de ML do mundo real é composta por código de ML, enquanto que a infraestrutura envolvente necessária é vasta e complexa.
 
@@ -35,17 +36,21 @@ Além disso, de acordo com o artigo [\"Hidden Technical Debt in Machine Learning
 
 Portanto, é necessário **estabelecer um conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção.**
 
-# Definições
+## Definições
 
 De acordo com a [MLOps SIG](https://github.com/cdfoundation/sig-mlops/blob/master/roadmap/2020/MLOpsRoadmap2020.md), MLOps é:
-> **"A extensão da metodologia DevOps para incluir ativos de aprendizado de máquina e ciência de dados como cidadãos de primeira classe dentro da ecologia DevOps."**
+
+!!! quote "Citação"
+    "A extensão da metodologia DevOps para incluir ativos de aprendizado de máquina e ciência de dados como cidadãos de primeira classe dentro da ecologia DevOps."
 
 Porém, como uma área em ascensão, o termo MLOps não é estritamente definido, especialmente quando comparado com machine learning engineering (MLE). Portanto, a definição de Andriy Burkov sobre MLE também é aplicável à MLOps, onde
-> **"Machine learning engineering é o uso de princípios científicos, ferramentas e técnicas de aprendizado de máquina e engenharia de software tradicional para projetar e construir sistemas de computação complexos. O MLE abrange todas as etapas, desde a coleta de dados, até a construção do modelo, a fim de disponibilizar o modelo para uso pelo produto ou  consumidores." $—$ Andriy Burkov**
+
+!!! quote "Citação"
+    "Machine learning engineering é o uso de princípios científicos, ferramentas e técnicas de aprendizado de máquina e engenharia de software tradicional para projetar e construir sistemas de computação complexos. O MLE abrange todas as etapas, desde a coleta de dados, até a construção do modelo, a fim de disponibilizar o modelo para uso pelo produto ou  consumidores." $—$ Andriy Burkov**
 
 Assim, independente do termo utilizado (MLOps e MLE), o que importa é o objetivo da área de fornecer um processo de projeto e desenvolvimento de sistemas baseados em machine learning que sejam reprodutíveis, escaláveis e robustos.
 
-# Benefícios do MLOps
+## Benefícios do MLOps
 
 Como dito, MLOps tem como objetivo fornecer um conjunto de práticas e processos eficazes para projetar, construir e implantar modelos escaláveis de ML em produção. Isso pode ser alcançado ao garantir capacidades e qualidades fundamentais, tanto para a aplicação quanto para o projeto em si. Alguns exemplos são:
 
@@ -53,7 +58,7 @@ Como dito, MLOps tem como objetivo fornecer um conjunto de práticas e processos
 - Aplicação de Princípios Ágeis ao projeto de ML.
 - Garantia de reprodutibilidade.
 - Versionamento de dados, pipelines e modelos.
-- Teste automatizando de artefatos de ML.\*
+- Teste automatizando de artefatos de ML.[^1]
 - Monitoramento de performance dos modelos em produção.
 - Suporte a CI/CD para artefatos de ML, incluindo dados.
 - Suporte a CT (Continuous training) para modelos e pipelines.
@@ -62,13 +67,13 @@ Como dito, MLOps tem como objetivo fornecer um conjunto de práticas e processos
 
 Note que a partir dessas capacidades, mais benefícios surgem, como velocidade no processo de introdução dos modelos à produção, custo reduzido de desenvolvimento e operações (em nível empresariaral), mitigação de riscos associados ao projeto, etc.
 
-# Práticas Fundamentais
+## Práticas Fundamentais
 
 No mundo de MLOps, novas tendências e práticas surgem o tempo todo. Porém, há algumas práticas essenciais que fazem parte do coração do MLOps. Tais práticas são obrigatórias para se alcançar um processo de desenvolvimento de sistemas baseados em ML poderoso. Além disso, cada uma dessas práticas podem ser estendidas e melhoradas.
 
-## Controle de Versão
+### Controle de Versão
 
-Diferente do desenvolvimento convencional de software, aplicações baseadas em ML possuem três artefatos que devem ser trabalhados: dado, modelo e código\*\*\*.
+Diferente do desenvolvimento convencional de software, aplicações baseadas em ML possuem três artefatos que devem ser trabalhados: dado, modelo e código[^2].
 
 A prática de versionar dado, modelo e código é uma extremamente importante no âmbito de MLOps, visto que a partir do versionamento é possível melhorar a reprodutibilidade e garantir manutenibilidade, prevenção de erros e recuperação de desastres para todo o projeto.
 
@@ -80,9 +85,9 @@ Assim, o versionamento de artefatos em projetos de ML permite:
 - Reverter a versão do modelo para uma versão anterior no caso de releases quebradas (ou que podem vir a quebrar em produção).
 - Automatizar todo o pipeline de ML através de CI/CD e CT.
 
-## Rastreamento de Experimentos
+### Rastreamento de Experimentos
 
-Devido a natureza experimental e iterativa de modelos de ML, manter um rastreamento sistemáþico de todas as informações relacionadas aos experimentos é essencial. Basicamente, o rastreio de experimentos é a prática de salvar (i.e. \"loggar\") todas as informações importantes relacionadas aos dados, modelo e código de cada iteração do experimento executado, de forma que seja possível se ter um conhecimento completo de cada informação gerada e o controle total sobre todas as modificações realizadas.
+Devido a natureza experimental e iterativa de modelos de ML, manter um rastreamento sistemáþico de todas as informações relacionadas aos experimentos é essencial. Basicamente, o rastreio de experimentos é a prática de salvar (i.e. "loggar") todas as informações importantes relacionadas aos dados, modelo e código de cada iteração do experimento executado, de forma que seja possível se ter um conhecimento completo de cada informação gerada e o controle total sobre todas as modificações realizadas.
 
 Por exemplo, ao desenvolvermos um modelo, podemos querer rastrear (e versionar) em cada iteração de um experimento:
 
@@ -95,7 +100,7 @@ Por exemplo, ao desenvolvermos um modelo, podemos querer rastrear (e versionar) 
 
 Uma vez tendo essas informações, podemos comparar os diferentes resultados alcançados, identificar o impacto de cada alteração no resultado final, identificar problemas de performance do sistema, etc. Portanto, a prática de rastrear os experimentos é fundamental tanto para a reprodutiblidade (de fato, é a principal forma de alcançá-la) quanto para o desenvolvimento da aplicação em si.
 
-## Pipelines de ML Automatizados
+### Pipelines de ML Automatizados
 
 A automação é outra prática fundamental em MLOps. No contexto de ML, a automação consiste em automatizar todos os pipelines do *workflow* de ML, incluindo pipelines de dados, construção de modelos e integração de código a fim de que todo o processo seja executado sem qualquer intervenção humana. Com isso:
 
@@ -106,7 +111,7 @@ A automação é outra prática fundamental em MLOps. No contexto de ML, a autom
 
 Logo, considerando um pipeline típico de ML, que parte da coleta de dados até a disponibilização do modelo, podemos considerar (no geral) 3 níveis de automação.
 
-### Nível 1 $-$ Processo Manual
+#### Nível 1 - Processo Manual
 
 O Nível 1 (Processo Manual) é o processo tradicional de ciência de dados, onde cada etapa do pipeline é executado usando ferramentas RAD (do inglês, Rapid Application Development), como Jupyter Notebooks.
 
@@ -117,13 +122,13 @@ Este nível de automação é caracterizado principalmente pela natureza experim
   <b>Fonte:</b> Example of a manual process. Adapted from: <a target="_blank" href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning">Google Cloud [4]</a>
 </p>
 
-### Nível 2 $-$ Pipeline de ML Automatizado
+#### Nível 2 - Pipeline de ML Automatizado
 
 O Nível 2 de automação é um nível onde todo o processo de construção à validação do modelo é executado automaticamente conforme novos dados são disponibilizados ou o procedimento de retreino é disparado (baseado em uma política de agendamento ou threshold de performance). Assim, o objetivo e prover um processo treinamento contínuo (CT, do inglês continuous training) através da automatização de todo o pipeline de ML.
 
 Este nível de automatação é caracterizado por:
 
-- Experimentos orquestrados\*\*\*
+- Experimentos orquestrados[^3]
 - Modelos em produção que são continuamente atualizados automaticamente.
 - Etapas de teste e deployment ocorrem manualmente.
 
@@ -132,7 +137,7 @@ Este nível de automatação é caracterizado por:
   <b>Fonte:</b> Example of an automated ML pipeline. Adapted from: <a target="_blank" href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning">Google Cloud [4]</a>
 </p>
 
-### Nível 3 $-$ Pipeline CI/CD
+#### Nível 3 - Pipeline CI/CD
 
 No Nível 3 de automação, todo o *workflow* ocorre automaticamente através de estratégias de CI/CD. Logo, diferente do anterior, as etapas de build, teste e deployment de cada um dos artefatos (dado, modelo e código) também ocorrem automaticamente.
 
@@ -180,22 +185,22 @@ Alguns benefícios de feature stores são:
 - Disponibilização em escala e com baixa latência das feaures, principalmente para rotinas de retreinamento.
 - Garantira de consistência das features entre o processo de treinamento e deployment.
 
-# Conclusão
+## Conclusão
 
 Dado o crescente uso de ML em vários setores da indústria e a necessidade por aplicações baseadas em ML manuteníveis e escaláveis, a adoção da cultura de MLOps deve ser tornar um padrão para todos aqueles que trabalham com IA ao longo dos próximos anos. Afinal, MLOps tem se mostrado essencial em projetos de larga escala graças aos diversos benefícios indispensáveis que são gerados.
 
-# Notas e Comentários
+## Notas e Comentários
 
-(\*) Artefatos de ML são todos os (hiper)parâmetros, scripts e dados de treinamento e teste utilizados para a construção de um modelo.
+[^1]: Artefatos de ML são todos os (hiper)parâmetros, scripts e dados de treinamento e teste utilizados para a construção de um modelo.
 
-(\*\*) Dado compreende tanto o pipeline de dados quanto os dados utilizados para treinamento, validação e teste. Modelo compreende todos os artefatos associados à construção do modelo. Código compreende tanto aos códigos relacionados aos dados e modelo, quanto o código-fonte da aplicação ao qual o modelo deve ser integrado.
+[^2]: Dado compreende tanto o pipeline de dados quanto os dados utilizados para treinamento, validação e teste. Modelo compreende todos os artefatos associados à construção do modelo. Código compreende tanto aos códigos relacionados aos dados e modelo, quanto o código-fonte da aplicação ao qual o modelo deve ser integrado.
 
-(\*\*\*) Experimentos orquestrados são aqueles cujas transições entre cada etapa do experimento ocorre de maneira automática e com um rastramento rigoroso.
+[^3]: Experimentos orquestrados são aqueles cujas transições entre cada etapa do experimento ocorre de maneira automática e com um rastramento rigoroso.
 
-# Referências
+## Referências
 
 - [Sculley, David, et al. “Hidden technical debt in machine learning systems.” Advances in neural information processing systems 28 (2015): 2503–2511.](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
-- [\"ML-Ops.org.\" MLOps, ml-ops.org/.](https://ml-ops.org/)
+- ["ML-Ops.org." MLOps, ml-ops.org/.](https://ml-ops.org/)
 - [Burkov, Andriy. Machine learning engineering. True Positive Incorporated, 2020.](http://www.mlebook.com/wiki/doku.php)
-- [\"MLOps: Continuous Delivery and Automation Pipelines in Machine Learning.\" Google Cloud, cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+- ["MLOps: Continuous Delivery and Automation Pipelines in Machine Learning." Google Cloud, cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
 - [Breck, Eric, et al. "The ml test score: A rubric for ml production readiness and technical debt reduction." 2017 IEEE International Conference on Big Data (Big Data). IEEE, 2017.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf)
