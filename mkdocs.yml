@@ -141,43 +141,41 @@ markdown_extensions:
 #
 nav:
   - Início: index.md
-  - Sobre: index.md
+  - Sobre o Autor: about.md
   - Teoria:
-    - Design de Sistemas de ML & MLOps: introducing_mlops.md
-    - Qualidades Desejáveis em Projetos de ML: ml_systems_desired_qualities.md
+    - Design de Sistemas de ML & MLOps: content/theory/introducing_mlops.md
+    - Qualidades Desejáveis em Projetos de ML: content/theory/ml_systems_desired_qualities.md
     - Considerações de Projeto:
-      - Ciclo de Vida de um Projeto de ML: project_planning/index.md
-      - Desafios no Desenvolvimento de Modelos: project_planning/index.md
-      - IA Centrada em Dados: project_planning/index.md
-      - CRISP-ML(Q): project_planning/index.md
+      - Ciclo de Vida de um Projeto de ML: content/theory/project_planning/ml_project_lifecycle.md
+      - Desafios no Desenvolvimento de Modelos: content/theory/project_planning/challenges_in_model_development.md
+      - IA Centrada em Dados: content/theory/project_planning/data_centric_ai.md
+      - CRISP-ML(Q): content/theory/project_planning/crisp_ml.md
     - Manipulação de Dados:
-      - Coleta de Dados: data_management/index.md
-      - Processamento de Dados: data_management/index.md
+      - Coleta de Dados: content/theory/data_management/data_collection.md
+      - Processamento de Dados: content/theory/data_management/data_processing.md
     - Treinamento:
-      - Treinamento de Modelos Supervisionados: training/index.md
+      - Introdução: content/theory/training/index.md
     - Avaliação:
-      - Avaliação de Modelos: evaluation/index.md
+      - Introdução: content/theory/evaluation/index.md
     - Implantação:
-      - Estratégias de Implantação de Modelos: deployment/index.md
+      - Introdução: content/theory/deployment/index.md
     - Servindo Modelos:
-      - Estratégias para Servir Modelos: serving/model_serving_strategies.md
-      - (Going Deeper) Model as a Service: serving/index.md
-      - (Going Deeper) Model as a Dependency: serving/index.md
-      - (Going Deeper) Model as a Pré-Computação: serving/index.md
-      - (Going Deeper) Modelo sob Demanda: serving/index.md
-      - (Going Deeper) Federated Learning: serving/index.md
+      - Introdução: content/theory/serving/model_serving_strategies.md
+      # - (Going Deeper) Model as a Service: content/theory/serving/index.md
+      # - (Going Deeper) Model as a Dependency: content/theory/serving/index.md
+      # - (Going Deeper) Model as a Pré-Computação: content/theory/serving/index.md
+      # - (Going Deeper) Modelo sob Demanda: content/theory/serving/index.md
+      # - (Going Deeper) Federated Learning: content/theory/serving/index.md
     - Monitoramento:
-      - Monitoramento de Modelos de ML: monitoring/index.md
+      - Introdução: content/theory/monitoring/index.md
     - Práticas Essenciais de MLOps:
-      - Versionamento: mlops/index.md
-      - Rastreamento de Experimentos: mlops/index.md
-      - Automação de Pipelines de ML: mlops/index.md
-      - Testes Automatizados: mlops/index.md
-      - Feature Stores: mlops/index.md
-      - Model Registry: mlops/index.md
+      - Versionamento: content/theory/mlops/index.md
+      - Rastreamento de Experimentos: content/theory/mlops/index.md
+      - Automação de Pipelines de ML: content/theory/mlops/index.md
+      - Testes Automatizados: content/theory/mlops/index.md
+      - Feature Stores: content/theory/mlops/index.md
+      - Model Registry: content/theory/mlops/index.md
     - Boas Práticas em ML:
-      - Dado: index.md
-      - Modelo: index.md
-      - Código: index.md
-  - Prática: index.md
-  - Referências: index.md
+      - Introdução: content/theory/best_practices/index.md
+  # - Prática:  # TODO
+  - Referências: references.md
