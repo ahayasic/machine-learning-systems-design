@@ -30,11 +30,11 @@ theme:
     # - content.tabs.link
     - navigation.instant
     - navigation.tracking
-    - navigation.sections
-    - navigation.expand
+    # - navigation.sections
+    # - navigation.expand
     - navigation.top
     # - header.autohide
-    # - navigation.indexes
+    - navigation.indexes
     - navigation.tabs
     # - navigation.tabs.sticky
     - search.highlight
@@ -46,15 +46,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
         icon: material/toggle-switch-off-outline
         name: Trocar para Modo Escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
         icon: material/toggle-switch
         name: Trocar para Modo Claro
@@ -168,14 +168,14 @@ nav:
       - (Going Deeper) Federated Learning: serving/index.md
     - Monitoramento:
       - Monitoramento de Modelos de ML: monitoring/index.md
-    - As Práticas Fundamentais de MLOps:
+    - Práticas Essenciais de MLOps:
       - Versionamento: mlops/index.md
       - Rastreamento de Experimentos: mlops/index.md
       - Automação de Pipelines de ML: mlops/index.md
       - Testes Automatizados: mlops/index.md
       - Feature Stores: mlops/index.md
       - Model Registry: mlops/index.md
-    - Boas Práticas para Machine Learning:
+    - Boas Práticas em ML:
       - Dado: index.md
       - Modelo: index.md
       - Código: index.md
