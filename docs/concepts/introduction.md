@@ -1,9 +1,24 @@
-# Ciclo de Vida de um Projeto de Machine Learning
-O ciclo de vida de um projeto de machine learning corresponde a todas as etapas de desenvolvimento de um projeto com foco na resolução de problemas através de técnicas de machine learning.
+# Introdução ao Projeto de Sistemas de Machine Learning
 
-## Etapas de um Projeto de Machine Learning
+Projetar um sistema de machine learning (ML) na indústria é um processo altamente iterativo e consideralvemente diferente da academia.
 
-De acordo com Andrew Ng, um projeto de machine learning (ML) possui quatro grandes etapas (que por sua vez, podem ser divididas em mais etapas). São elas: escopo, preparação dos dados, modelagem e implantação (do inglês, deployment).
+Na academia, (geralmente) estamos preocupados em alcançar o estado-da-arte (SOTA, do inglês state-of-the-art) em algumas tarefas padrões ou conjuntos de dados de **benchmarking**. Assim, é muito comum que os modelos resultantes sejam custosos demais para serem utilizados na indústria.
+
+Modelos com bilhões de parâmetros, por exemplo, são extremamente custosos para treinar e operacionalizar. Dependendo de onde será feita a sua implantação (e.g. dispositivo móvel), o uso de algo tão complexo é inviável.
+
+!!! note "Nota"
+    Eventualmente os "big models" vão se tornar menores e mais rápidos. Porém, a diferença de prioridades entre a academia e indústria raramente irá permitir que os métodos SOTA sejam utilizados em produção.
+
+Portanto, temos que ter em mente que ao projetar um sistema de machine learning, nossa prioridade não é alcançar um método estado-da-arte, mas sim um modelo escalável e capaz de cumprir um conjunto restritivo de exigências.
+
+## Etapas de um Projeto de ML
+
+O ciclo de vida de um projeto de ML corresponde a todas as etapas de desenvolvimento de um projeto, com foco na resolução de problemas através de ML.
+
+Geralmente dividimos o ciclo de vida de um projeto de ML em quatro etapas principais (que por sua vez, podem ser divididas em mais etapas). São elas: escopo, preparação dos dos, modelagem e implantação (do inglês, deployment).
+
+!!! warning "Not so shallow...\ \ \ :grin:"
+    Além de descritas abaixo, cada uma dessas etapas contém seções particulares onde são abordadas com mais detalhes, incluindo estratégias sobre o que fazer em cada momento da etapa e como fazer.
 
 ### Escopo
 
@@ -63,15 +78,13 @@ De acordo com Andriy Burkov, há três fatores principais que influenciam consid
 
 #### Definindo Baselines
 
-Da perspectiva de um projeto de ML, uma baseline é o desempenho base a partir do qual queremos melhorar. Portanto, antes de começarmos a implementarmos nossos próprios modelos, é importante pesquisarmos soluções já existentes para o problema que queremos atacar (ou então, semelhante ao problema que queremos atacar).
+Do ponto de vista de um projeto de ML, uma baseline é o desempenho base a partir do qual queremos melhorar. Portanto, antes de começarmos a implementarmos nossos próprios modelos, é importante pesquisarmos soluções já existentes para o problema que queremos atacar (ou então, semelhantes ao problema que queremos atacar).
 
 O [Model Zoo](https://modelzoo.co/), por exemplo, é uma plataforma onde diversos modelos pré-treinados (de deep learning) são disponibilizados, de forma que o desenvolver tenha apenas que "plugá-lo" no sistema ou processo de desenvolvimento.
 
 Contudo, não precisamos definir uma baseline exatamente durante o escopo do projeto. Podemos fazer isso apenas antes de construirmos nossos próprios modelos. Afinal, neste ponto pelo menos há uma quantidade de dados (de boa qualidade) possivelmente suficiente.
 
-!!! info "Informação"
-    Detalhes sobre a definição de baselines podem ser encontrados na seção [Avaliação](../evaluation/index.md).
-
+Entramos em mais detalhes sobre a definição de baselines na seção [Avaliação][1].
 
 ### Preparação dos Dados
 
@@ -86,9 +99,7 @@ Além disso, a etapa de preparação de dados é (geralmente) composta pelas seg
 - **Data Cleaning.** Processo de formatação dos dados e correção de erros (e.g. valores faltantes ou inconsistentes) de forma que se enquadrem nos esquemas definidos.
 - **Data Splitting.** Divisão do dados em conjuntos dedicados ao treinamento, validação e teste dos modelos produzidos.
 
-!!! info "Informação"
-    Detalhes sobre a preparação de dados podem ser encontrados na seção [Preparação de Dados](../data_preparation/index.md).
-
+Entramos em mais detalhes sobre a preparação de dados na seção [Preparação de Dados][2].
 
 ### Modelagem
 
@@ -103,8 +114,7 @@ As subetapas principais da etapa de modelagem são:
     Além disso, é nesta etapa que comparamos o modelo construído com possíveis baselines e analisamos quais pontos podem ser melhorados no nosso modelo.
 
 
-!!! info "Informação"
-    Detalhes sobre o treinamento e avaliação de modelos podem ser encontrados nas seções [Treinamento](../training/index.md) e [Avaliação](../evaluation/index.md), respectivamente.
+Entramos em mais detalhes sobre o treinamento e avaliação de modelos nas seções [Treinamento][3] e [Avaliação][1], respectivamente.
 
 ### Implantação
 
@@ -118,12 +128,19 @@ A etapa de implantação é geralmente composta pelos seguintes processos:
 !!! note "Nota"
     Mesmo após o deployment inicial, a manutenção de tanto o sistema quanto o modelo é necessária. Portanto, é comum reexecutarmos etapas anteriores frequentemente.
 
-!!! info "Informação"
-    Detalhes sobre implantação, *serving* e monitoramento podem ser encontrados nas seções [Implantação](.../deployment/index.md), [Model Serving](../serving/index.md) e [Monitoramento](../monitoring/index.md), respectivamente.
+Entramos em mais detalhes sobre implantação, *serving* e monitoramento nas seções [Implantação][4], [Model Serving][5] e [Monitoramento][6], respectivamente.
 
 ## Referências
 
 - [Machine Learning Engineering by Andriy Burkov](http://www.mlebook.com/)
-- [ML Project Lifecycle $-$ Introduction to Machine Learning in Production by Coursera](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)
+- [Machine Learning Systems Design by Chip Huyen](https://github.com/chiphuyen/machine-learning-systems-design)
+- [Introduction to Machine Learning in Production by Coursera](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)
 - [An Overview of the End-to-End Machine Learning Workflow by MLOps](https://ml-ops.org/content/end-to-end-ml-workflow)
 - [ML Life Cycle by ProductizeML](https://course.productize.ml/productize-it/ml-lifecycle)
+
+    [1]: ../evaluation/
+    [2]: ../data_preparation/
+    [3]: ../training/
+    [4]: ../deployment/
+    [5]: ../serving/
+    [6]: ../monitoring/

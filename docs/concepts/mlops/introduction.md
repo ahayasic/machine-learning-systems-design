@@ -1,4 +1,4 @@
-# Design de Sistemas de ML & MLOps
+# Introdução ao MLOps
 
 !!! attention "Attention! Atenção!"
     **(en_US)** This post is a translation (into pt_BR) of my post [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) originally published on [Daitan's](https://medium.com/daitan-tech) blog.
@@ -46,7 +46,7 @@ De acordo com a [MLOps SIG](https://github.com/cdfoundation/sig-mlops/blob/maste
 Porém, como uma área em ascensão, o termo MLOps não é estritamente definido, especialmente quando comparado com machine learning engineering (MLE). Portanto, a definição de Andriy Burkov sobre MLE também é aplicável à MLOps, onde
 
 !!! quote "Citação"
-    "Machine learning engineering é o uso de princípios científicos, ferramentas e técnicas de aprendizado de máquina e engenharia de software tradicional para projetar e construir sistemas de computação complexos. O MLE abrange todas as etapas, desde a coleta de dados, até a construção do modelo, a fim de disponibilizar o modelo para uso pelo produto ou  consumidores." $—$ Andriy Burkov**
+    "Machine learning engineering é o uso de princípios científicos, ferramentas e técnicas de aprendizado de máquina e engenharia de software tradicional para projetar e construir sistemas de computação complexos. O MLE abrange todas as etapas, desde a coleta de dados, até a construção do modelo, a fim de disponibilizar o modelo para uso pelo produto ou  consumidores." $—$ Andriy Burkov
 
 Assim, independente do termo utilizado (MLOps e MLE), o que importa é o objetivo da área de fornecer um processo de projeto e desenvolvimento de sistemas baseados em machine learning que sejam reprodutíveis, escaláveis e robustos.
 

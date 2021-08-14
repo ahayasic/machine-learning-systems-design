@@ -185,10 +185,9 @@ nav:
   - Início: index.md
   - Sobre o Autor: about.md
   - Crash Course:
-    - Design de Sistemas de ML & MLOps: concepts/introducing_mlops.md
-    - Qualidades Desejáveis em Projetos de ML: concepts/ml_systems_desired_qualities.md
+    - Introdução ao Projeto de Sistemas de Machine Learning: concepts/introduction.md
+    - Qualidades Desejáveis em Projetos de Machine Learning: concepts/ml_systems_desired_qualities.md
     - Considerações de Projeto:
-      - Ciclo de Vida de um Projeto de Machine Learning: concepts/project_planning/ml_project_lifecycle.md
       - Desafios no Desenvolvimento de Modelos: concepts/project_planning/challenges_in_model_development.md
       - IA Centrada em Dados: concepts/project_planning/data_centric_ai.md
       - CRISP-ML(Q): concepts/project_planning/crisp_ml.md
@@ -203,7 +202,7 @@ nav:
     - Implantação:
       - Introdução: concepts/deployment/index.md
     - Model Serving:
-      - Introdução: concepts/serving/model_serving_strategies.md
+      - Introdução: concepts/serving/introduction.md
       # - (Going Deeper) Model as a Service: concepts/serving/index.md
       # - (Going Deeper) Model as a Dependency: concepts/serving/index.md
       # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
@@ -211,7 +210,8 @@ nav:
       # - (Going Deeper) Federated Learning: concepts/serving/index.md
     - Monitoramento:
       - Introdução: concepts/monitoring/index.md
-    - Práticas Essenciais de MLOps:
+    - MLOps:
+      - Introdução ao MLOps: concepts/mlops/introduction.md
       - Versionamento: concepts/mlops/index.md
       - Rastreamento de Experimentos: concepts/mlops/index.md
       - Automação de Pipelines de ML: concepts/mlops/index.md
