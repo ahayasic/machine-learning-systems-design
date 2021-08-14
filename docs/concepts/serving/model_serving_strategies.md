@@ -1,4 +1,7 @@
-# Estratégias para Servir Modelos
+# Introdução ao Model Serving
+
+!!! note "Nota"
+    Por falta de uma expressão adequada em português, usaremos o termo *model serving* :grin:
 
 Ao disponibilizar (ou "servir") um modelo de (ML), **duas considerações principais** devem ser levadas em conta:
 
@@ -91,9 +94,8 @@ Padrão onde o **modelo previamente treinado pré-executa a realização de infe
   - Aprendizado Em Lotes
   - Inferência em Batches.
 
-#### Leitura Adicional
-
-- https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020
+??? abstract "Leitura Adicional"
+    - https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020
 
 ### Modelo Sob-Demanda
 
@@ -101,10 +103,9 @@ Padrão onde o modelo de ML também é **tratado como uma dependência que está
 
 - Recomendado para qualquer padrão de treinamento e inferência.
 
-#### Leitura Adicional
-
-- [Event-driven architecture](https://learning.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html)
-- [Web services vs. streaming for real-time machine learning endpoints](https://towardsdatascience.com/web-services-vs-streaming-for-real-time-machine-learning-endpoints-c08054e2b18e)
+??? abstract "Leitura Adicional"
+    - [Event-driven architecture](https://learning.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html)
+    - [Web services vs. streaming for real-time machine learning endpoints](https://towardsdatascience.com/web-services-vs-streaming-for-real-time-machine-learning-endpoints-c08054e2b18e)
 
 ### (Hybrid-Serving) Federated Learning
 
@@ -129,9 +130,8 @@ A principal vantagem dessa abordagem é que:
 
 Porém, a grande desvantagem é que a especialização do modelo é custosa para usuários. Afinal, os modelos de ML são desenvolvidos com conjuntos de dados grandes e homogêneos em um hardware poderoso.
 
-#### Leitura Adicional
-
-- [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software#model-machine-learning-pipelines)
+??? abstract "Leitura Adicional"
+    - [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software#model-machine-learning-pipelines)
 
 
 ## Referências

@@ -1,5 +1,11 @@
 # Qualidades Desejáveis em Projetos de Machine Learning Ponta-a-Ponta
 
+!!! attention "Attention! Atenção!"
+    **(en_US)** This post is a synthesis and translation (into pt_BR) of the post [MLOps Principles](https://ml-ops.org/content/mlops-principles) by [ml-ops.org](https://ml-ops.org/).
+
+    **(pt_BR)** Esta publicação é síntese e tradução (para pt_BR) do artigo [MLOps Principles](https://ml-ops.org/content/mlops-principles) de [ml-ops.org](https://ml-ops.org/).
+
+
 A fim de garantir o sucesso de um projeto de ML, são necesárias algumas qualidades essenciais.
 
 É importante ressaltar que, diferente de um projeto de desenvolvimento de software convencional, aplicações baseadas em Machine Learning possuem três artefatos que devem ser trabalhados: **Dado**, **Modelo**, **Código**.
@@ -369,7 +375,8 @@ Em conjunto das qualidades, um conjunto de melhores práticas que tendem a ajuda
 </tbody>
 </table>
 
-## Leitura Adicional
+## Referências
 
+- [MLOps Principles](https://ml-ops.org/content/mlops-principles) by [ml-ops.org](https://ml-ops.org/).
 - [Hidden Technical Debt in Machine Learning Systems](https://web.kaust.edu.sa/Faculty/MarcoCanini/classes/CS290E/F19/papers/tech-debt.pdf)
 

@@ -188,20 +188,21 @@ nav:
     - Design de Sistemas de ML & MLOps: concepts/introducing_mlops.md
     - Qualidades Desejáveis em Projetos de ML: concepts/ml_systems_desired_qualities.md
     - Considerações de Projeto:
-      - Ciclo de Vida de um Projeto de ML: concepts/project_planning/ml_project_lifecycle.md
+      - Ciclo de Vida de um Projeto de Machine Learning: concepts/project_planning/ml_project_lifecycle.md
       - Desafios no Desenvolvimento de Modelos: concepts/project_planning/challenges_in_model_development.md
       - IA Centrada em Dados: concepts/project_planning/data_centric_ai.md
       - CRISP-ML(Q): concepts/project_planning/crisp_ml.md
-    - Manipulação de Dados:
-      - Coleta de Dados: concepts/data_management/data_collection.md
-      - Processamento de Dados: concepts/data_management/data_processing.md
+    - Preparação de Dados:
+      - Introdução: concepts/data_preparation/index.md
+      - Coleta de Dados: concepts/data_preparation/data_collection.md
+      - Processamento de Dados: concepts/data_preparation/data_processing.md
     - Treinamento:
       - Introdução: concepts/training/index.md
     - Avaliação:
       - Introdução: concepts/evaluation/index.md
     - Implantação:
       - Introdução: concepts/deployment/index.md
-    - Servindo Modelos:
+    - Model Serving:
       - Introdução: concepts/serving/model_serving_strategies.md
       # - (Going Deeper) Model as a Service: concepts/serving/index.md
       # - (Going Deeper) Model as a Dependency: concepts/serving/index.md
