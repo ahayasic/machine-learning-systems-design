@@ -9,7 +9,11 @@ Modelos com bilhões de parâmetros, por exemplo, são extremamente custosos par
 !!! note "Nota"
     Eventualmente os "big models" vão se tornar menores e mais rápidos. Porém, a diferença de prioridades entre a academia e indústria raramente irá permitir que os métodos SOTA sejam utilizados em produção.
 
-Portanto, temos que ter em mente que ao projetar um sistema de machine learning, nossa prioridade não é alcançar um método estado-da-arte, mas sim um modelo escalável e capaz de cumprir um conjunto restritivo de exigências.
+Portanto, temos que ter em mente que ao projetar um sistema de machine learning, nossa prioridade não é alcançar um método estado-da-arte, mas sim um modelo que atenda aos objetivos de negócio, ao mesmo tempo que seja escalável e capaz de cumprir um conjunto restritivo de exigências. Mas, como fazer isso?
+
+O conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção ainda está sendo definido. Contudo, já existem diversas abordagens interessantes que podemos aplicar no ciclo de vida de um projeto de ML, como é o caso de [MLOps](mlops/introduction.md). Além disso, por conta da diversidade das etapas do ciclo de vida de projetos de ML, são exigidos processos diferentes em cada momento.
+
+Aqui, vamos abordar as práticas mais comuns aplicadas em cada etapa do ciclo de desenvolvimento de ML que, juntas, formam um primeiro conjunto de estratégias fundamentais para o projeto de sistemas de ML.
 
 ## Etapas de um Projeto de ML
 
