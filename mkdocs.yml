@@ -203,7 +203,7 @@ nav:
       - Introdução: concepts/deployment/index.md
     - Model Serving:
       - Introdução: concepts/serving/introduction.md
-      # - (Going Deeper) Model as a Service: concepts/serving/index.md
+      - Model as a Service (MaaS): concepts/serving/model_as_a_service.md
       # - (Going Deeper) Model as a Dependency: concepts/serving/index.md
       # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
       # - (Going Deeper) Modelo sob Demanda: concepts/serving/index.md
