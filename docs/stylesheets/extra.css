@@ -1,3 +1,9 @@
+:root {
+    --md-primary-fg-color: #5790e0;
+    --md-primary-fg-color--light: #5790e0;
+    --md-primary-fg-color--dark: #5790e0;
+}
+
 @media screen and (min-width: 768px){
     .md-grid {
         max-width: 75rem;

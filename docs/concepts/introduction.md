@@ -1,25 +1,53 @@
 # Introdução ao Projeto de Sistemas de Machine Learning
 
-Projetar um sistema de machine learning (ML) na indústria é um processo altamente iterativo e consideralvemente diferente da academia.
+## Introdução
 
-Na academia, (geralmente) estamos preocupados em alcançar o estado-da-arte (SOTA, do inglês state-of-the-art) em algumas tarefas padrões ou conjuntos de dados de **benchmarking**. Assim, é muito comum que os modelos resultantes sejam custosos demais para serem utilizados na indústria.
+Projetar um sistema de machine learning (ML) é um processo altamente iterativo e complexo.
+
+Chip Huyen define o projeto de sistemas de ML como:
+
+!!! quote "Citação"
+    "Processo de definir todos os componentes de um sistema de ML, incluindo hardware, infraestrutura, interfaces, dados e algoritmos, de forma que o sistema atenda aos objetivos de negócio ao mesmo tempo que seja confiável, escalável, manutenível, adaptável e capaz de cumprir um conjunto restritivo de exigências." $-$ Chip Huyen
+
+De fato, os algoritmos de ML são apenas uma pequena parte de um sistema de ML em produção. Afinal, um sistema em produção é muito mais do que apenas um algoritmo. Ele deve conter interfaces para que usuários e desenvolvedores interajam com o sistema, infraestrutura para executar as operações, engenharia e governança de dados para o gerenciamento dos dados, etc.
+
+![image-20210209144401041](https://ahayasic.github.io/blog/assets/img/image-20210209144401041.png)
+<p class="post__img_legend">
+  <b>Fonte:</b> <a target="_blank" href="https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015): 2503-2511.</a>
+</p>
+
+Além disso, dada a escala de muitos sistemas de ML que $-$ consumem grandes quantidades de dados, exigem um grande recurso computacional e afeta milhares de vidas $-$ a simples necessidade de colocá-lo em produção já é um grande desafio de engenharia e social. Quando este desafio não é bem compreendido, o sistema de ML pode causar grandes prejuízos tanto à companhia quanto a vida das pessoas.
+
+O conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção ainda está sendo definido. Contudo, já existem diversas abordagens interessantes que podemos aplicar em projeto de ML, como é o caso de [MLOps](mlops/introduction.md).
+
+Aqui, vamos abordar as práticas mais comuns aplicadas em cada etapa do ciclo de desenvolvimento de ML que, juntas, formam um primeiro conjunto de estratégias fundamentais para o projeto de sistemas de ML.
+
+### Pesquisa x Produção
+
+Quando comparamos o desenvolvimento de sistemas de ML na indústria e algoritmos de ML na academia percebemos que os objetivos são diferentes.
+
+Na academia, (geralmente) estamos preocupados em alcançar o estado-da-arte (SOTA, do inglês state-of-the-art) em algumas tarefas específicas. Por conta disso, é muito comum que os modelos resultantes sejam custosos demais para serem utilizados na indústria.
 
 Modelos com bilhões de parâmetros, por exemplo, são extremamente custosos para treinar e operacionalizar. Dependendo de onde será feita a sua implantação (e.g. dispositivo móvel), o uso de algo tão complexo é inviável.
 
 !!! note "Nota"
     Eventualmente os "big models" vão se tornar menores e mais rápidos. Porém, a diferença de prioridades entre a academia e indústria raramente irá permitir que os métodos SOTA sejam utilizados em produção.
 
-Portanto, temos que ter em mente que ao projetar um sistema de machine learning, nossa prioridade não é alcançar um método estado-da-arte, mas sim um modelo que atenda aos objetivos de negócio, ao mesmo tempo que seja escalável e capaz de cumprir um conjunto restritivo de exigências. Mas, como fazer isso?
+Ainda, em projetos de pesquisa é muito comum que os dados sejam algum "benchmarking". Logo, são dados geralmente limpos e bem-formatados, o que permite o foco total no desenvolvimento de modelos de aprendizado. Por outro lado, sistemas em produção precisam lidar com falta de dados, dados extremamente desorganizados, ruídosos e que mudam constantemente.
 
-O conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção ainda está sendo definido. Contudo, já existem diversas abordagens interessantes que podemos aplicar no ciclo de vida de um projeto de ML, como é o caso de [MLOps](mlops/introduction.md). Além disso, por conta da diversidade das etapas do ciclo de vida de projetos de ML, são exigidos processos diferentes em cada momento.
+De fato, tanto os objetivos quanto os desafios são consideralvemente diferentes em cada contexto. Contudo, ainda assim é muito comum os profissionais de dados focarem unicamente no desenvolvimento do modelo e encarar com menor importância as demais tarefas. Esta atitude é um exemplo de quando o desafio de colocar sistemas de ML em produção não é bem compreendido.
 
-Aqui, vamos abordar as práticas mais comuns aplicadas em cada etapa do ciclo de desenvolvimento de ML que, juntas, formam um primeiro conjunto de estratégias fundamentais para o projeto de sistemas de ML.
+### Softwares Tradicionais x Sistemas de ML
+
+Diferente de softwares tradicionais, sistemas de ML não compreendem apenas código, mas também dados e modelos. A adição de mais dois artefatos torna o desenvolvimento de aplicações baseadas em ML significativamente mais complexo, pois além de testar e versionar códigos, temos que testar e versionar dados e modelos.
+
+Consequentemente, desafios únicos ao projeto de sistemas de ML surgem, desde etapas como desenvolvimento, até o teste, integração, compilação e monitoramento do sistema.
 
 ## Etapas de um Projeto de ML
 
-O ciclo de vida de um projeto de ML corresponde a todas as etapas de desenvolvimento de um projeto, com foco na resolução de problemas através de ML.
+Como dito anteriormente, projetar um sistema de ML é um processo altamente iterativo, complexo e, geralmente, interminável (uma vez que o sistema precisa ser monitorado e atualizado continuamente).
 
-Geralmente dividimos o ciclo de vida de um projeto de ML em quatro etapas principais (que por sua vez, podem ser divididas em mais etapas). São elas: escopo, preparação dos dos, modelagem e implantação (do inglês, deployment).
+Este processo $-$ também chamado de *ciclo de vida* $-$ é composto por quatro etapas principais (que por sua vez, podem ser divididas em mais etapas). São elas: escopo, preparação dos dos, modelagem e implantação (do inglês, deployment).
 
 !!! warning "Not so shallow...\ \ \ :grin:"
     Além de descritas abaixo, cada uma dessas etapas contém seções particulares onde são abordadas com mais detalhes, incluindo estratégias sobre o que fazer em cada momento da etapa e como fazer.
@@ -136,8 +164,8 @@ Entramos em mais detalhes sobre implantação, *serving* e monitoramento nas se�
 
 ## Referências
 
+- [Designing Machine Learning Systems by Chip Huyen](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)
 - [Machine Learning Engineering by Andriy Burkov](http://www.mlebook.com/)
-- [Machine Learning Systems Design by Chip Huyen](https://github.com/chiphuyen/machine-learning-systems-design)
 - [Introduction to Machine Learning in Production by Coursera](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)
 - [An Overview of the End-to-End Machine Learning Workflow by MLOps](https://ml-ops.org/content/end-to-end-ml-workflow)
 - [ML Life Cycle by ProductizeML](https://course.productize.ml/productize-it/ml-lifecycle)
