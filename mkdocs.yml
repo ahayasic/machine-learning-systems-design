@@ -213,7 +213,7 @@ nav:
     - MLOps:
       - Introdução ao MLOps: concepts/mlops/introduction.md
       - Versionamento: concepts/mlops/index.md
-      - Rastreamento de Experimentos: concepts/mlops/index.md
+      - Rastreamento de Experimentos: concepts/mlops/experiment_tracking.md
       - Automação de Pipelines de ML: concepts/mlops/index.md
       - Testes Automatizados: concepts/mlops/index.md
       - Feature Stores: concepts/mlops/index.md
