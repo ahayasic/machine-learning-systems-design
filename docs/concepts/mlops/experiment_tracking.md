@@ -1,5 +1,7 @@
 # Rastreamento e Versionamento de Experimentos
 
+## Introdução
+
 Uma prática extremamente importante nos projetos de ML é o rastreamento dos experimentos, tal como o versionamento do código e artefatos produzidos pelo experimento.
 
 Ao rastrear e versionar os experimentos, conseguimos:
@@ -120,21 +122,23 @@ No caso dos parâmetros e métricas, cada parâmetro indicado pelo argumento `ke
 
 Os métodos de logging mais importantes são:
 
-- `log_param(key, value)`. Loga um parametro de nome `key` e valor `value`
-
-- `log_params(dict)`. Semelhante a `log_param`, mas loga um conjunto de parâmetros organizados em um dicionário.
+- **`log_param(key, value)`.** Loga um parametro de nome `key` e valor `value`
+- **`log_params(dict)`.** Semelhante a `log_param`, mas loga um conjunto de parâmetros organizados em um dicionário.
 
     !!! warning "Atenção!"
         Não é possível logar o mesmo parâmetro mais de uma vez usando o método `log_param`. Caso isso seja necessário, use `log_params`.
 
         Ainda, é recomendado o uso consistente dos métodos. Logo, opte por sempre usar um ou outro.
 
-- `log_metric(key, value, step)`. Análogo ao `log_param` com a diferença do argumento `step`, que nos permite logar vários resultados para uma mesma métrica (assim, podemos registrar experimentos executados com Validação Cruzada, por exemplo).
-- `log_metrics(dict, step)`. Análogo ao `log_metric` mas para conjuntos de métricas.
-- `log_artifact(local_path, artifact_path)`.
-- `log_artifacts(local_dir, artifact_path)`.
+- **`log_metric(key, value, step)`.** Análogo ao `log_param` com a diferença do argumento `step`, que nos permite logar vários resultados para uma mesma métrica (assim, podemos registrar experimentos executados com Validação Cruzada, por exemplo).
+- **`log_metrics(dict, step)`.** Análogo ao `log_metric` mas para conjuntos de métricas.
+- **`log_artifact(local_path, artifact_path)`.**
+- **`log_artifacts(local_dir, artifact_path)`.**
 
 #### Loggando Modelos
+
+!!! failure "TODO"
+
 
 #### Boas Práticas
 
@@ -142,24 +146,24 @@ Por padrão, ao loggar modelos, apenas o binário do modelo e as dependências p
 
 Porém, é interessante manter junto ao modelo os dados utilizados para sua construção. Afinal, código, dado e modelo precisam estar **sempre** sincronizados.
 
-1. **Loggar os dados como artefatos.** A primeira e mais simples alternativa é salvar os dados como artefatos junto do modelo.
+Dessa forma, práticas que podemos adotar são:
 
-   ```python
-   # [...]
-   # df = pd.read_csv("path/to/dataset.csv")
+1. **(Recomendada) Loggar os dados como artefatos.** A primeira e mais simples alternativa é salvar os dados como artefatos junto do modelo.
 
-   mlflow.log_artifact(local_path="path/to/dataset.csv")
-   ```
+    ```python
+    # [...]
+    # df = pd.read_csv("path/to/dataset.csv")
 
-   O problema dessa abordagem é que tanto as iterações quanto o armazenamento em si pode ficar custoso.
+    mlflow.log_artifact(local_path="path/to/dataset.csv")
+    ```
 
-   Podemos amenizar o custo de armazenamento, ao loggarmos tanto dado quanto modelo em *objects storage* (e.g. Hadoop ou AWS S3).
+    O problema dessa abordagem é que tanto as iterações quanto o armazenamento em si pode ficar custoso.
 
-   Contudo, o custo de upload do dado ainda tende a ser custoso.
+    Podemos amenizar o custo de armazenamento, ao loggarmos tanto dado quanto modelo em *objects storage* (e.g. Hadoop ou AWS S3).
 
-2. **Usar uma ferramenta de versionamento de dado, tal como DVC.** Embora interessante a princípio, essa estratégia possui várias complicações*.
+    Contudo, o custo de upload do dado ainda tende a ser custoso.
 
-   > *esclarecer possíveis complicações
+2. **(Não recomendada) Usar uma ferramenta de versionamento de dado, tal como DVC.** Embora interessante a princípio, essa estratégia possui várias complicações*.
 
 ### Como Execuções (Entidades e Artefatos) são Armazenados
 
@@ -171,6 +175,8 @@ O MLflow utiliza dois componentes para o armazenamento dos dados:
 
 - **Backend Store.** Armazena as entidades MLflow (metadados de execução, parâmetros, métricas, tags, notas, etc.)
 - **Artifact Store.** Armazena os artefatos (arquivos, modelos, dados, imagens, objetos, etc.)
+
+Para definirmos **como** e **onde** as execuções serão registradas, usamos o método `set_tracking_uri`.
 
 #### Armazenando no Sistema de Arquivos Local
 
@@ -185,7 +191,6 @@ Assim, para cada experimento:
 
 2. Cada execução possui um diretório dentro da pasta do respectivo experimento onde são armazenados os artefatos e entidades. O nome do diretório de cada execução é o UUID da respectiva execução.
 
-Para definirmos onde as execuções serão registradas, usamos o método `set_tracking_uri`.
 
 !!! note "Nota"
     Ao especificarmos um caminho para o sistema de arquivos local, devemos sempreutilizar a sintaxe: `file:///path/to/dir/mlflow/`.
@@ -219,6 +224,10 @@ Por exemplo, podemos modificar o código de um experimento e executá-lo diversa
 Portanto, as práticas que podemos adotar são:
 
 1. Sempre que o código do experimento for alterado, ele **deve** ser commitado antes de ser executado novamente.
-2. Considerar apenas a última execução. Porém, caso a nova execução tenha resultados inferiores, não será possível reverter o código para a última versão (uma vez que ele não foi versionado).
-3. Utilizar uma ferramenta para auto-commit (abordagem recomendada). Com isso, toda alteração permanecerá rastreada. Ao mesmo tempo, há um potencial de poluição do histórico de commits, visto que alterações pequenas ou pouco significantes também serão incluídas como commits individuais.
+2. Utilizar uma ferramenta para auto-commit (abordagem recomendada). Com isso, toda alteração permanecerá rastreada. Ao mesmo tempo, há um potencial de poluição do histórico de commits, visto que alterações pequenas ou pouco significantes também serão incluídas como commits individuais.
+3. Considerar apenas a última execução.
+
+    !!! note ""
+        Ao optar por essa abordagem, caso a nova execução tenha resultados inferiores, não será possível reverter o código para a última versão (uma vez que ele não foi versionado)
+
 

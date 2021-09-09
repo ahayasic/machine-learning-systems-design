@@ -84,8 +84,12 @@ Por exemplo, é difícil definir com precisão quais serão os dados necessário
 
 Portanto, o uso de modelos de risco-impacto é uma abordagem segura e efetiva. Um exemplo de modelo de risco-impacto para projetos de ML é o apresentado na figura abaixo.
 
-!!! failure "TODO"
-    Incluir Figura
+<figure>
+    <img src="https://gblobscdn.gitbook.com/assets%2F-MFCNLySTC0Jf6imOp3y%2F-MQwPKwMF0lj8wta91d7%2F-MQwPQlInVbfXE_6Q2ZZ%2Frisk-table.png?alt=media&token=e9ae7777-1f6d-4b18-b865-90d63cc5b7f0" style="max-width: 750px;">
+    <figcaption class="post__img_legend">
+        <b>Fonte:</b> <a target="_blank" href="https://course.productize.ml/productize-it/business-objectives">Business Objectives – ML Life Cycle by ProductizeML</a>
+    </figcaption>
+</figure>
 
 #### Custos do Projeto
 
