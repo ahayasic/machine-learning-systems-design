@@ -196,7 +196,8 @@ nav:
       - Coleta de Dados: concepts/data_preparation/data_collection.md
       - Processamento de Dados: concepts/data_preparation/data_processing.md
     - Treinamento:
-      - Introdução: concepts/training/index.md
+      - Introdução: concepts/training/introduction.md
+      - Estabelecendo Baselines: concepts/training/establishing_baselines.md
     - Avaliação:
       - Introdução: concepts/evaluation/index.md
     - Implantação:
