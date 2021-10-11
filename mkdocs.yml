@@ -192,33 +192,39 @@ nav:
       - IA Centrada em Dados: concepts/project_planning/data_centric_ai.md
       - CRISP-ML(Q): concepts/project_planning/crisp_ml.md
     - Preparação de Dados:
-      - Introdução: concepts/data_preparation/index.md
+      - Introdução à Preparação de Dados: concepts/data_preparation/index.md
       - Coleta de Dados: concepts/data_preparation/data_collection.md
       - Processamento de Dados: concepts/data_preparation/data_processing.md
-    - Treinamento:
-      - Introdução: concepts/training/introduction.md
-      - Estabelecendo Baselines: concepts/training/establishing_baselines.md
+    - Construção de Modelos:
+      - Introdução à Construção de Modelos: concepts/training/introduction.md
+      - Definição de Baselines: concepts/training/establishing_baselines.md
+      - Feature Engineering: concepts/training/feature_engineering.md
+      - Seleção de Modelos: concepts/training/model_selection.md
+      - Otimização de Hiperparâmetros: concepts/training/hyperparameters_tuning.md
+      - Métricas de Avaliação: concepts/training/evaluation_metrics.md
+      - Análise de Erros: concepts/training/error_analysis.md
     - Avaliação:
-      - Introdução: concepts/evaluation/index.md
+      - Introdução à Avaliação de Modelos: concepts/evaluation/introduction.md
+      # - Teste A/B: concepts/evaluation/introduction.md
+      # - Multi-Armed Bandit: concepts/evaluation/introduction.md
     - Implantação:
-      - Introdução: concepts/deployment/index.md
+      - Introdução à Implantação de Modelos: concepts/deployment/introduction.md
     - Model Serving:
-      - Introdução: concepts/serving/introduction.md
+      - Introdução ao Model Serving: concepts/serving/introduction.md
       - Model as a Service (MaaS): concepts/serving/model_as_a_service.md
       # - (Going Deeper) Model as a Dependency: concepts/serving/index.md
       # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
       # - (Going Deeper) Modelo sob Demanda: concepts/serving/index.md
       # - (Going Deeper) Federated Learning: concepts/serving/index.md
     - Monitoramento:
-      - Introdução: concepts/monitoring/index.md
+      - Introdução ao Monitoramento de Modelos: concepts/monitoring/introduction.md
     - MLOps:
       - Introdução ao MLOps: concepts/mlops/introduction.md
-      - Versionamento: concepts/mlops/index.md
+      - Versionamento: concepts/mlops/versioning.md
       - Rastreamento de Experimentos: concepts/mlops/experiment_tracking.md
-      - Automação de Pipelines de ML: concepts/mlops/index.md
-      - Testes Automatizados: concepts/mlops/index.md
-      - Feature Stores: concepts/mlops/index.md
-      - Model Registry: concepts/mlops/index.md
-    - Boas Práticas em ML:
-      - Introdução: concepts/best_practices/index.md
+      - Automação de Pipelines de ML: concepts/mlops/ml_pipelines_automation.md
+      - Testes Automatizados: concepts/mlops/testing_assets.md
+      - Feature Stores: concepts/mlops/feature_stores.md
+      - Model Registry: concepts/mlops/model_registry.md
+    - Boas Práticas em ML: concepts/best_practices/good_practices.md
   - Referências: references.md
