@@ -1,4 +1,4 @@
-# Introdução ao Model Serving
+# Model Serving
 
 !!! note "Nota"
     Por falta de uma expressão adequada em português, usaremos o termo *model serving* :grin:

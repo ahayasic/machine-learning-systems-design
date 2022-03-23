@@ -1,4 +1,4 @@
-# Introdução ao Projeto de Sistemas de Machine Learning
+# Introdução ao Projeto de Sistemas de ML
 
 ## Introdução
 
@@ -18,7 +18,7 @@ De fato, os algoritmos de ML são apenas uma pequena parte de um sistema de ML e
 
 Além disso, dada a escala de muitos sistemas de ML que $-$ consumem grandes quantidades de dados, exigem um grande recurso computacional e afeta milhares de vidas $-$ a simples necessidade de colocá-lo em produção já é um grande desafio de engenharia e social. Quando este desafio não é bem compreendido, o sistema de ML pode causar grandes prejuízos tanto à companhia quanto a vida das pessoas.
 
-O conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção ainda está sendo definido. Contudo, já existem diversas abordagens interessantes que podemos aplicar em projeto de ML, como é o caso de [MLOps](mlops/introduction.md).
+O conjunto de práticas e processos eficazes para projetar, construir e implantar modelos de ML em produção ainda está sendo definido. Contudo, já existem diversas abordagens interessantes que podemos aplicar em projeto de ML, como é o caso de [MLOps](mlops/index.md).
 
 Aqui, vamos abordar as práticas mais comuns aplicadas em cada etapa do ciclo de desenvolvimento de ML que, juntas, formam um primeiro conjunto de estratégias fundamentais para o projeto de sistemas de ML.
 

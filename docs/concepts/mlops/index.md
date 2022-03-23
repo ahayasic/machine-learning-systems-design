@@ -1,4 +1,4 @@
-# Introdução ao MLOps
+# MLOps
 
 !!! attention "Attention! Atenção!"
     **(en_US)** This post is a translation (into pt_BR) of my post [Introducing MLOps](https://medium.com/daitan-tech/introducing-mlops-9d5d2d35de04) originally published on [Daitan's](https://medium.com/daitan-tech) blog.

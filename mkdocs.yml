@@ -37,7 +37,7 @@ theme:
     # - header.autohide           # header automatically hidden
     - navigation.indexes          # documents can be directly attached to sections (not working properly!)
     - navigation.tabs             # top-level sections rendered in menu
-    - navigation.tabs.sticky      # lock sections in menu
+    # - navigation.tabs.sticky    # lock sections in menu
     - search.highlight            # highlight all occurrences of word searched
     # - search.share              # shareble link to current query search
     - search.suggest              # search display the likeliest completion for the last word
@@ -62,8 +62,8 @@ theme:
 
   # Font
   font:
-    text: Source Sans Pro
-    code: DM Mono
+    text: Nunito
+    code: Fira Mono
     font: false
   # favicon:
   icon:
@@ -184,19 +184,19 @@ markdown_extensions:
 nav:
   - Início: index.md
   - Sobre o Autor: about.md
-  - Crash Course:
-    - Introdução ao Projeto de Sistemas de Machine Learning: concepts/introduction.md
-    - Qualidades Desejáveis em Projetos de Machine Learning: concepts/ml_systems_desired_qualities.md
+  - Projeto de Sistemas de ML:
+    - Introdução ao Projeto de Sistemas de ML: concepts/introduction_ml_systems_design.md
+    - Qualidades Desejáveis em Projetos de ML: concepts/ml_systems_desired_qualities.md
     - Considerações de Projeto:
       - Desafios no Desenvolvimento de Modelos: concepts/project_planning/challenges_in_model_development.md
       - IA Centrada em Dados: concepts/project_planning/data_centric_ai.md
       - CRISP-ML(Q): concepts/project_planning/crisp_ml.md
     - Preparação de Dados:
-      - Introdução à Preparação de Dados: concepts/data_preparation/index.md
+      - concepts/data_preparation/index.md
       - Coleta de Dados: concepts/data_preparation/data_collection.md
       - Processamento de Dados: concepts/data_preparation/data_processing.md
     - Construção de Modelos:
-      - Introdução à Construção de Modelos: concepts/training/introduction.md
+      - concepts/training/index.md
       - Definição de Baselines: concepts/training/establishing_baselines.md
       - Feature Engineering: concepts/training/feature_engineering.md
       - Seleção de Modelos: concepts/training/model_selection.md
@@ -204,22 +204,22 @@ nav:
       - Métricas de Avaliação: concepts/training/evaluation_metrics.md
       - Análise de Erros: concepts/training/error_analysis.md
     - Avaliação:
-      - Introdução à Avaliação de Modelos: concepts/evaluation/introduction.md
+      - concepts/evaluation/index.md
       # - Teste A/B: concepts/evaluation/introduction.md
       # - Multi-Armed Bandit: concepts/evaluation/introduction.md
     - Implantação:
-      - Introdução à Implantação de Modelos: concepts/deployment/introduction.md
+      - concepts/deployment/index.md
     - Model Serving:
-      - Introdução ao Model Serving: concepts/serving/introduction.md
+      - concepts/serving/index.md
       - Model as a Service (MaaS): concepts/serving/model_as_a_service.md
       # - (Going Deeper) Model as a Dependency: concepts/serving/index.md
       # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
       # - (Going Deeper) Modelo sob Demanda: concepts/serving/index.md
       # - (Going Deeper) Federated Learning: concepts/serving/index.md
     - Monitoramento:
-      - Introdução ao Monitoramento de Modelos: concepts/monitoring/introduction.md
+      - concepts/monitoring/index.md
     - MLOps:
-      - Introdução ao MLOps: concepts/mlops/introduction.md
+      - concepts/mlops/index.md
       - Versionamento: concepts/mlops/versioning.md
       - Rastreamento de Experimentos: concepts/mlops/experiment_tracking.md
       - Automação de Pipelines de ML: concepts/mlops/ml_pipelines_automation.md
