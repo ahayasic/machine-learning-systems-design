@@ -1,111 +1,94 @@
 # Model Serving
 
-!!! note "Nota"
-    Por falta de uma expressão adequada em português, usaremos o termo *model serving* :grin:
+Model serving é uma das etapas do fluxo de criação e produtização de um modelo de machine learning (ML) cujo objetivo é disponibilizar o modelo para uso, em conjunto de estratégias de implantação (deployment).
 
-Ao disponibilizar (ou "servir") um modelo de (ML), **duas considerações principais** devem ser levadas em conta:
+A forma como um modelo é disponibilizado para a execução de inferências afeta diretamente, tanto a interação do usuário (ou aplicação) com o modelo, quanto seu desempenho e manutenibilidade. Por isso, ao dedicir qual estratégia utilizar, devemos levar em consideração fatores como:
 
-- Padrão de Treinamento do Modelo
-- Padrão de Inferência do Modelo
+- Padrão de treinamento e inferência (em lotes ou fluxo)
+- Disponibilidade offline (possível fazer inferências offline ou apenas online)
+- Latência de rede (caso necessário envio de dados)
+- Segurança de dados sensíveis
+- Padrão de atualização do modelo
+- Recursos de computação disponível
 
-A partir destas considerações, torna-se mais fácil definir a forma como o modelo deverá ser "servido".
+De fato, esses são os principais aspectos que nos levam a escolher uma estratégia de *serving*.
+
+!!! note "Serving x Deployment"
+    Termos como _model serving_ e _model deployment_ são utilizados de forma intercambiável na interwebs da vida :smile:
+
+    Para tornar as explicações mais claras e consistentes, vamos definir:
+
+      - _Model serving_. **Forma** que um modelo é disponiblizado para inferências
+      - _Model deployment_. **Como** a forma que o modelo é disponiblizado é realizada
+
+    Por exemplo, podemos servir um modelo como um serviço encapsulado em um container e cuja implantação (ou _deployment_) se dá através de um processo de CI/CD em *Modo Canário*.
 
 ## Padrões de Treinamento e Inferência
 
-### Padrões de Treinamento do Modelo
+Os padrões de treinamento e inferência são fatores fundamentais na decisão de como um modelo deve ser disponibilizado, uma vez que há estratégias de serving que não suportam um determinado padrão (ou combinação de padrões) de treinamento e inferência.
+
+### Padrões de (re)Treinamento de Modelos
+
+Considerando um cenário onde um modelo já está treinado e pronto para produção, a preocupação com seu padrão de treinamento se dá pela necessidade do seu **retreinamento**  Afinal, uma vez que o modelo está em produção, ele é exposto continuamente a novos dados do mundo real (e não apenas a uma amostra estática) e, consequentemente, torna-se obsoleto (fenômeno conhecido como *model decay*). Para que o modelo em produção mantenha um bom desempenho a maior parte do tempo, ele deve ser retreinado.
 
 Modelos de ML são treinados de duas formas:
 
-- Em Lotes (batches), conhecido como Aprendizado em Lotes (ou Offline Learning).
-- Incremental, conhecido como Aprendizado Incremental (Incremental Learning ou Online Learning).
+- Em Lotes (batches), conhecido como Aprendizado em Lotes ou Offline/Batch Learning.
+- Incremental, conhecido como Aprendizado Incremental Online Learning.
 
-#### Aprendizado em Lotes
+Logo, o retreinamento também pode acontecer em lotes ou de forma incremental.
 
-No Aprendizado em Lotes, o modelo é treinado em um conjunto de dados pré-existente.
-
-- O retreinamento ocorre apenas depois de um longo período de tempo em produção, no qual foi exposto a novos dados do mundo real e, consequentemente, tornou-se obsoleto.
-
-O principal problema do Aprendizado Offline é a obsolecencia do modelo ao longo do tempo.
-
-> Tal fenômeno é conhecido como *"Model Decay"*
-
-#### Aprendizado Incremental
-
-No Aprendizado Incremental(*), o modelo é treinado regularmente conforme novos dados são disponibilizados à aplicação (e.g. real-time data streams).
-
-- O retreinamento pode ocorrer em um único dado novo ou pequenos grupos de dados, denominados *mini-batches*.
-
-O principal problema do Aprendizado Incremental é que, quando em produção, a entrada de dados ruins (e.g, ruídos) tende a prejudicar consideravalmente o desempenho tanto do modelo quanto de toda a aplicação.
+- No retreinamento em lotes, um modelo é retreinado após um tempo considerável em produção. Esse retreinamento pode acontecer em intervalos fixos (por exemplo, a cada 30 dias) ou quando um limite inferior de desempenho é atingindo. O principal problema do retreinamento em lotes é que, no caso de um intervalos fixo, a degradação do modelo pode acontecer em diferentes velocidades, o que torna difícil encontrar uma frequência de retreinamento ideal. Por outro lado, monitorar um modelo em produção e retreiná-lo com base em alguma métrica de desempenho, é um processo consideravelmente complexo tanto pela definição e cálculo da métrica em si, quanto pela necessidade de toda uma solução de monitoramento.
+- No "aprendizado incremental", o modelo é treinado regularmente conforme novos dados são disponibilizados à aplicação (e.g. real-time data streams). O retreinamento pode ocorrer em um único dado novo ou pequenos grupos de dados, denominados *mini-batches*. O principal problema do Aprendizado Incremental é que, quando em produção, a entrada de dados ruins (e.g, ruídos) tende a prejudicar consideravalmente o desempenho do modelo.
 
 ## Padrões de Inferência do Modelo
 
-Modelos de ML podem ser dispostos para inferir instâncias de duas formas: Em Batches ou Sob-demanda.
+Da mesma forma que treinados, modelos de ML podem ser dispostos para inferir dados de duas formas: Em Batches ou Sob-demanda.
 
-### Inferência em Batches
+- Na inferência em batches, o modelo executa predições sobre um "grande" volume de dados de uma vez e só então retorna os resultados.
+- Na inferência em tempo real, as predições são executadas sob-demanda para cada dado (ou pequenos conjuntos) de entrada e, em seguida, o resultado já é retornado.
 
-As inferências são realizadas sobre um conjunto de dados (históricos).
-
-Abordagem interessante para quando:
-
-- Os dados que não dependem do tempo.
-- O tempo de saída para o dado de entrada não é um fator crítico (ou mesmo necessário).
-
-### Inferência em Tempo Real
-
-As inferências são realizadas em tempo-real (e sob-demanda) para cada dado de entrada. Assim, a saída para o dado de entrada também ocorre em tempo real.
-
-Abordagem interessante para quando:
-
-- O tempo de saída para o dado de entrada é um fator crítico.
+!!! note "O que é grande?"
+    Grande é relativo, não é mesmo? De qualquer forma, no contexto de inferência em batches significa que ao invés de executar inferências sob-demanda em pequenos conjuntos de dados (e.g. 1 a ~300 instâncias), executa-se para várias entradas em conjunto (e.g., mais do que 500 ou 10 mil instâncias)
 
 ## Padrões de Model Serving
 
-Com base no padrão de treinamento e inferência do modelo que deve ser colocado em produção, podemos adotar diferentes estratégias de *serving*. Alguns exemplos são:
+Existem diversas abordagens para servir um modelo, cada um com suas vantagens e desvantagens. Alguns exemplos são:
 
-- *Model-as-a-Service (MaaS)*
-- *Model-as-a-Dependency (MaaD)*
-- *Precompute Serving Pattern*
-- *Model-on-Demand*
-- *Hybrid-Serving (Federated Learning)*
+- Modelo como Parte da Aplicação (Static Deployment)
+- Model-as-a-Service (MaaS)
+- Model-as-a-Dependency (MaaD)
+- Hybrid-Serving (Federated Learning)
+
+### Modelo como Parte da Aplicação (Static Deployment)
+
+Nesta abordagem $-$ que Andriy Burkov chama de Static Deployment $-$, o modelo é empacotado como parte da aplicação que então é instalada através de um arquivo de distribuição de aplicações, como, por exemplo: arquivo binário executável, JAR, APK, DEB, etc.
+
+#### Vantagens
+
+- Não é preciso enviar dados do usuário para um servidor (ou qualquer recurso) externo ao dispositivo do usuário
+- O modelo estará sempre disponível, mesmo se o usuário estiver offline (sem conexão com a Internet)
+- Caso seja um modelo simples, sem necessidade de computações rápidas ou pesadas, o tempo de inferência é muito mais rápido na abordagem "estático" quando comparado com qualquer outra estratégia
+
+#### Desvantagens
+
+- Para atualizar o modelo é necessário atualizar toda a aplicação (ou seja, reconstruir o arquivo de distribuição da aplicação mesmo que apenas o modelo tenha sofrido alterações)
+- Executar o monitoramento de performance do modelo é extremamente difícil
+- Se a computação do modelo for cara, executá-la no dispositivo do usuário pode ser ineficiente ou prejudicar a experiência do usuário
+
+### Model-as-a-Dependecy (MaaD)
+
+Padrão onde o modelo é **empacotado e definido como uma dependência da aplicação**. Assim, a aplicação invoca um método de inferência (passando os parâmetros apropriados) que deve retornar um resultado pelo modelo de ML previamente treinado e empacotado.
+
+Mais detalhes e exemplos práticos em [Model-as-a-Dependency](model_as_a_dependency.md).
 
 ### Model-as-a-Service (MaaS)
 
 Padrão (mais comum) onde o modelo de ML é **empacotado como um serviço independente com um servidor web dedicado** a partir do qual as aplicações enviam requisições através de, por exemplo, uma API REST.
 
-- As formas mais tradicionais de se implementar uma arquiteutra MaaS é através de:
-  - Microserviços
-  - REST API (simples)
-  - Serviço gRPC
-- Recomendado para qualquer padrão de treinamento e inferência.
+Mais detalhes e exemplos práticos em [Model-as-a-Service](model_as_a_service.md).
 
-###  Model-as-a-Dependecy (MaaD)
-
-Padrão onde o modelo é **empacotado e definido como uma dependência da aplicação**. Assim, a aplicação invoca um método de inferência (passando os parâmetros apropriados) que deve retornar um resultado pelo modelo de ML previamente treinado e empacotado.
-
-- Recomendado para modelos de:
-  - Aprendizado Em Lotes
-  - Inferência em Batches e Tempo Real
-
-### Pré-Computação
-
-Padrão onde o **modelo previamente treinado pré-executa a realização de inferências sobre um dado conjunto de dados e armazena os resultados em um banco de dados**. Assim, as requisições feitas são respondidas através de consultas no banco de dados.
-
-- Recomendado para modelos de:
-  - Aprendizado Em Lotes
-  - Inferência em Batches.
-
-??? abstract "Leitura Adicional"
-    - https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020
-
-### Modelo Sob-Demanda
-
-Padrão onde o modelo de ML também é **tratado como uma dependência que está disponível em tempo de execução (da aplicação)**. Porém, ao contrário do padrão Model-as-Dependency, no Model-on-Demand o **modelo tem seu próprio ciclo de lançamento e é publicado de forma independente**.
-
-- Recomendado para qualquer padrão de treinamento e inferência.
-
-??? abstract "Leitura Adicional"
-    - [Event-driven architecture](https://learning.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html)
-    - [Web services vs. streaming for real-time machine learning endpoints](https://towardsdatascience.com/web-services-vs-streaming-for-real-time-machine-learning-endpoints-c08054e2b18e)
+### Serverless Servig/Deployment
 
 ### (Hybrid-Serving) Federated Learning
 

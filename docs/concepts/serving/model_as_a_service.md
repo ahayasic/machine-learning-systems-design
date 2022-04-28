@@ -19,10 +19,28 @@ As principais vantagens de se implantar modelos de ML como serviços são:
 
 Já os contras são:
 
-- Necessário mais aplicações e políticas de monitoramento.
-- Não é possível realizar inferências offline
-- Latência de inferência consideravelmente maior quanto comparado com inferências offline
-- Necessário um [load balancer](#) para lidar com grandes quantidades de requisições simultâneas.
+- Necessário mais aplicações para gerenciar.
+- Não é possível realizar inferências offline.
+- Latência de inferência consideravelmente maior quanto comparado com inferências offline, uma vez que os dados precisam ser enviados pela rede.
+- Dados sensíveis do usuário são enviados pela rede e executados em um domínio externo ao dele.
+
+### Arquiteturas baseadas em Máquinas Virtuais e Containers
+
+Partindo de uma perspectiva de escalabilidade, podemos implantar os serviços de predição de duas formas principais: máquinas virtuais ou containers. A diferença entre ambas é bem simples.
+
+#### Máquinas Virtuais
+Com máquinas virtuais (e.g. instâncias AWS EC2), usamos uma ou mais instâncias virtuais (idênticas) onde o serviço web roda em paralelo.
+
+A necessidade de diversas instâncias se dá quando há um grande volume de requisições a ser atendido. Neste caso, também incluímos um load balancer que irá receber as requisições e redirecioná-las para a instância com maior disponibilidade.
+
+Note, entretanto, que a necessidade de virtualização prejudica consideravelmente a eficiência de uso dos recursos de cada instância.
+
+#### Containers
+Diferente de máquinas virtuais, containers são consideravelmente mais eficientes no uso de recursos, tornando os gastos menores sem perda de desempenho (onde desempenho significa atender uma alta demanda de requisições).
+
+Dessa forma, podemos usar um orquestrador de containers como o Kubernetes para gerenciar um conjunto de containers executando em uma ou mais máquinas dentro de um cluster auto-escalável. Com essa estratégia, podemos reduzir o número de réplicas (ou seja, containers ativos em paralelo) para zero, quando não houver qualquer requisição e aumentar para um número suficientemente grande quando houver um grande volume de requisições.
+
+No geral, a implantação de serviços de predição em containers é a mais indicada.
 
 ### Protocolos de Comunicação
 
@@ -116,11 +134,10 @@ Então,  executamos as chamadas via web browser, por exemplo:
 http://localhost:8000/predict/?sentence=%22Life%20is%20beautiful,%20enjoy%20it%22
 ```
 
-## Conclusão
+#### Conclusão
 
 Este foi um exemplo prático extremamente simples. No mundo real, há diversas outras considerações que devemos levar em conta durante o serving de um modelo como um serviço, por exemplo:
 
-- A operação de importar um modelo com milhões de parâmetros é muito custosa. Logo, qual a melhor forma de importar os modelos para serem usados pela API?
 - Quando um modelo é atualizado, precisamos que isso se reflita no serviço. Contudo, não podemos simplesmente desligar e religar um serviço. Portanto, como atualizar os modelos para serviços em produção?
 - É muito possível que existam períodos em que a quantidade de requisição é grande o suficiente para derrubar o serviço, tornando necessário o uso de um load balancer. Quando isso deve acontecer? Como deve ser o load balancer?
 
