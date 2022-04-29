@@ -1,8 +1,10 @@
 # Model Serving
 
-Model serving é uma das etapas do fluxo de criação e produtização de um modelo de machine learning (ML) cujo objetivo é disponibilizar o modelo para uso, em conjunto de estratégias de implantação (deployment).
+## Introdução
 
-A forma como um modelo é disponibilizado para a execução de inferências afeta diretamente, tanto a interação do usuário (ou aplicação) com o modelo, quanto seu desempenho e manutenibilidade. Por isso, ao dedicir qual estratégia utilizar, devemos levar em consideração fatores como:
+O *model serving* é uma das etapas do fluxo de criação e produtização de um modelo de machine learning (ML) e tem como objetivo disponibilizar o modelo para uso em conjunto de estratégias de implantação (deployment).
+
+A forma como um modelo é disponibilizado para a execução de inferências afeta diretamente, tanto interação do usuário (ou aplicação) com ele, quanto seu desempenho e manutenibilidade. Por isso, ao dedicir qual estratégia utilizar, devemos levar em consideração fatores como:
 
 - Padrão de treinamento e inferência (em lotes ou fluxo)
 - Disponibilidade offline (possível fazer inferências offline ou apenas online)
@@ -14,7 +16,7 @@ A forma como um modelo é disponibilizado para a execução de inferências afet
 De fato, esses são os principais aspectos que nos levam a escolher uma estratégia de *serving*.
 
 !!! note "Serving x Deployment"
-    Termos como _model serving_ e _model deployment_ são utilizados de forma intercambiável na interwebs da vida :smile:
+    Termos como _model serving_ e _model deployment_ são utilizados de forma intercambiável na interwebsv:smile:
 
     Para tornar as explicações mais claras e consistentes, vamos definir:
 
@@ -29,7 +31,9 @@ Os padrões de treinamento e inferência são fatores fundamentais na decisão d
 
 ### Padrões de (re)Treinamento de Modelos
 
-Considerando um cenário onde um modelo já está treinado e pronto para produção, a preocupação com seu padrão de treinamento se dá pela necessidade do seu **retreinamento**  Afinal, uma vez que o modelo está em produção, ele é exposto continuamente a novos dados do mundo real (e não apenas a uma amostra estática) e, consequentemente, torna-se obsoleto (fenômeno conhecido como *model decay*). Para que o modelo em produção mantenha um bom desempenho a maior parte do tempo, ele deve ser retreinado.
+Considerando um cenário onde um modelo já está treinado e pronto para produção, a preocupação com seu padrão de treinamento se dá pela necessidade do seu **retreinamento**.
+
+Afinal, uma vez que o modelo está em produção, ele é exposto continuamente a dados novos do mundo real (e não apenas a uma amostra estática) e, consequentemente, torna-se obsoleto (fenômeno conhecido como *model decay*). Para que o modelo em produção mantenha um bom desempenho na maior parte do tempo, ele deve ser retreinado com uma certa frequência.
 
 Modelos de ML são treinados de duas formas:
 
@@ -38,10 +42,21 @@ Modelos de ML são treinados de duas formas:
 
 Logo, o retreinamento também pode acontecer em lotes ou de forma incremental.
 
-- No retreinamento em lotes, um modelo é retreinado após um tempo considerável em produção. Esse retreinamento pode acontecer em intervalos fixos (por exemplo, a cada 30 dias) ou quando um limite inferior de desempenho é atingindo. O principal problema do retreinamento em lotes é que, no caso de um intervalos fixo, a degradação do modelo pode acontecer em diferentes velocidades, o que torna difícil encontrar uma frequência de retreinamento ideal. Por outro lado, monitorar um modelo em produção e retreiná-lo com base em alguma métrica de desempenho, é um processo consideravelmente complexo tanto pela definição e cálculo da métrica em si, quanto pela necessidade de toda uma solução de monitoramento.
-- No "aprendizado incremental", o modelo é treinado regularmente conforme novos dados são disponibilizados à aplicação (e.g. real-time data streams). O retreinamento pode ocorrer em um único dado novo ou pequenos grupos de dados, denominados *mini-batches*. O principal problema do Aprendizado Incremental é que, quando em produção, a entrada de dados ruins (e.g, ruídos) tende a prejudicar consideravalmente o desempenho do modelo.
+#### Em Lotes
 
-## Padrões de Inferência do Modelo
+No retreinamento em lotes, um modelo é retreinado após um tempo considerável em produção. Esse retreinamento pode acontecer em intervalos fixos (por exemplo, a cada 30 dias) ou quando um limite inferior de desempenho é atingindo.
+
+O principal problema do retreinamento em lotes é que, no caso de um intervalos fixo, a degradação do modelo pode acontecer em diferentes velocidades, o que torna difícil encontrar uma frequência de retreinamento ideal.
+
+Por outro lado, monitorar um modelo em produção e retreiná-lo com base em alguma métrica de desempenho, é um processo consideravelmente complexo tanto pela definição e cálculo da métrica em si, quanto pela necessidade de toda uma solução de monitoramento.
+
+#### Aprendizado Incremental
+
+No "aprendizado incremental", o modelo é treinado regularmente conforme novos dados são disponibilizados à aplicação (e.g. real-time data streams). O retreinamento pode ocorrer em um único dado novo ou pequenos grupos de dados, denominados *mini-batches*.
+
+O principal problema do Aprendizado Incremental é que, quando em produção, a entrada de dados ruins (e.g, ruídos) tende a prejudicar consideravalmente o desempenho do modelo.
+
+###Padrões de Inferência do Modelo
 
 Da mesma forma que treinados, modelos de ML podem ser dispostos para inferir dados de duas formas: Em Batches ou Sob-demanda.
 

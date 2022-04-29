@@ -26,10 +26,10 @@ Já os contras são:
 
 ### Arquiteturas baseadas em Máquinas Virtuais e Containers
 
-Partindo de uma perspectiva de escalabilidade, podemos implantar os serviços de predição de duas formas principais: máquinas virtuais ou containers. A diferença entre ambas é bem simples.
+Partindo de uma perspectiva de escalabilidade, podemos implantar os serviços de predição de duas formas principais: máquinas virtuais ou containers.
 
 #### Máquinas Virtuais
-Com máquinas virtuais (e.g. instâncias AWS EC2), usamos uma ou mais instâncias virtuais (idênticas) onde o serviço web roda em paralelo.
+Com máquinas virtuais (e.g. instâncias AWS EC2), usamos uma ou mais instâncias onde o serviço web roda em paralelo (no caso de mais de uma instância).
 
 A necessidade de diversas instâncias se dá quando há um grande volume de requisições a ser atendido. Neste caso, também incluímos um load balancer que irá receber as requisições e redirecioná-las para a instância com maior disponibilidade.
 
