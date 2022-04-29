@@ -55,11 +55,11 @@ As arquiteturas de API mais comuns são:
 
 A implementação de MaaS pode ser feita tanto de forma manual, definindo sua própria API (com Flask ou FasAPI, por exemplo) e demais recursos, quanto através de ferramentas como TensorFlow Serving.
 
-## Exemplos
+## Exemplo
 
-A fim de solidificar o conhecimento, seguem um exemplo prático de implantação de um modelo como um serviço.
+A fim de solidificar o conhecimento, seguemum exemplo prático de serving (ou seria implantação? :grin:) de um modelo como um serviço.
 
-### Model as a Service com FastAPI
+### Model as a Service com FastAPI e Docker
 
 O Python contém diversos pacotes como Flask, FastAPI e Uvicorn que nos permite definir facilmente uma API REST, tal como servidores altamente eficientes.
 
@@ -142,3 +142,7 @@ Este foi um exemplo prático extremamente simples. No mundo real, há diversas o
 - É muito possível que existam períodos em que a quantidade de requisição é grande o suficiente para derrubar o serviço, tornando necessário o uso de um load balancer. Quando isso deve acontecer? Como deve ser o load balancer?
 
 Comentários sobre estes problemas serão incluídos futuramente!
+
+??? tip "Interessado em mais exemplos? :eyes:"
+
+    Caso queira ver mais exemplos de MaaS acesse o repositório [ahayasic/model-as-a-service-examples](#). Mas já adianto que não há uma explicação aprofundada para nenhum dos exemplos. Apenas código ¯\\\_(ツ)\_/¯

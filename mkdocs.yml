@@ -59,7 +59,7 @@ theme:
   # Font
   font:
     text: DM Sans
-    code: DM Mono
+    code: Roboto Mono
     font: false
   # favicon:
   icon:
