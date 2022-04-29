@@ -113,10 +113,6 @@ A principal vantagem dessa abordagem é que:
 
 Porém, a grande desvantagem é que a especialização do modelo é custosa para usuários. Afinal, os modelos de ML são desenvolvidos com conjuntos de dados grandes e homogêneos em um hardware poderoso.
 
-??? abstract "Leitura Adicional"
-    - [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software#model-machine-learning-pipelines)
-
-
 ## Referências
 
 - [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software#model-machine-learning-pipelines)

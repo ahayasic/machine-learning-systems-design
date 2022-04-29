@@ -15,7 +15,7 @@ edit_uri: ""
 
 # Copyright
 #
-copyright: Copyright &copy; 2021 Alisson Hayasi da Costa
+copyright: Copyright &copy; Alisson Hayasi da Costa
 
 
 # Configuration
@@ -47,23 +47,19 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: blue
       toggle:
         icon: material/toggle-switch-off-outline
         name: Trocar para Modo Escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      # primary: black
-      # accent: black
       toggle:
         icon: material/toggle-switch
         name: Trocar para Modo Claro
 
   # Font
   font:
-    text: Nunito
-    code: Fira Mono
+    text: DM Sans
+    code: DM Mono
     font: false
   # favicon:
   icon:
@@ -160,7 +156,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: ahayasic
-      repo: apache-airflow-in-a-nutshell
+      repo: machine-learning-systems-design
 
   # Utils
   - toc:
@@ -211,8 +207,8 @@ nav:
       - concepts/deployment/index.md
     - Model Serving:
       - concepts/serving/index.md
-      - Model as a Service: concepts/serving/model_as_a_service.md
       - Model as a Dependency: concepts/serving/model_as_a_dependency.md
+      - Model as a Service: concepts/serving/model_as_a_service.md
       # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
       # - (Going Deeper) Modelo sob Demanda: concepts/serving/index.md
       # - (Going Deeper) Federated Learning: concepts/serving/index.md
