@@ -2,7 +2,7 @@
 
 ## Introdução
 
-A maneira mais comum de servir um modelo de ML é como um serviço. Nessa abordagem, o modelo é abstraído em um serviço $-$ totalmente dedicado a servir o modelo $-$ que recebe requisições de inferência onde são passados os dados de entrada. Após executada as inferências, o serviço retorna os resultados ao requerente.
+A estratégia Model-as-a-Service é a mais adotada para servir modelos de ML. Nela, o modelo é abstraído em um serviço (tipicamente web) que recebe requisições de inferência. Após executada as inferências, o serviço retorna os resultados ao requerente.
 
 Dependendo da implementação, o serviço pode receber tanto batches de dados para inferência, quanto entradas individuais.
 
