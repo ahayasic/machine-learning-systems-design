@@ -2,7 +2,7 @@
 
 ## Introdução
 
-O *model serving* é uma das etapas do fluxo de criação e produtização de um modelo de machine learning (ML) e tem como objetivo disponibilizar o modelo para uso em conjunto de estratégias de implantação (deployment).
+O **model serving** é a etapa do fluxo de criação de um modelo de machine learning (ML) que tem como objetivo disponibilizar o modelo para uso em conjunto de estratégias de implantação (deployment).
 
 A forma como um modelo é disponibilizado para a execução de inferências afeta diretamente, tanto interação do usuário (ou aplicação) com ele, quanto seu desempenho e manutenibilidade. Por isso, ao dedicir qual estratégia utilizar, devemos levar em consideração fatores como:
 
@@ -71,65 +71,12 @@ Da mesma forma que treinados, modelos de ML podem ser dispostos para inferir dad
 Existem diversas abordagens para servir um modelo, cada um com suas vantagens e desvantagens. Alguns exemplos são:
 
 - Modelo como Parte da Aplicação (Static Deployment)
-- Model-as-a-Service (MaaS)
 - Model-as-a-Dependency (MaaD)
+- Model-as-a-Service (MaaS)
+- Serverless Servig/Deployment
 - Hybrid-Serving (Federated Learning)
-
-### Modelo como Parte da Aplicação (Static Deployment)
-
-Nesta abordagem $-$ que Andriy Burkov chama de Static Deployment $-$, o modelo é empacotado como parte da aplicação que então é instalada através de um arquivo de distribuição de aplicações, como, por exemplo: arquivo binário executável, JAR, APK, DEB, etc.
-
-#### Vantagens
-
-- Não é preciso enviar dados do usuário para um servidor (ou qualquer recurso) externo ao dispositivo do usuário
-- O modelo estará sempre disponível, mesmo se o usuário estiver offline (sem conexão com a Internet)
-- Caso seja um modelo simples, sem necessidade de computações rápidas ou pesadas, o tempo de inferência é muito mais rápido na abordagem "estático" quando comparado com qualquer outra estratégia
-
-#### Desvantagens
-
-- Para atualizar o modelo é necessário atualizar toda a aplicação (ou seja, reconstruir o arquivo de distribuição da aplicação mesmo que apenas o modelo tenha sofrido alterações)
-- Executar o monitoramento de performance do modelo é extremamente difícil
-- Se a computação do modelo for cara, executá-la no dispositivo do usuário pode ser ineficiente ou prejudicar a experiência do usuário
-
-### Model-as-a-Dependecy (MaaD)
-
-Padrão onde o modelo é **empacotado e definido como uma dependência da aplicação**. Assim, a aplicação invoca um método de inferência (passando os parâmetros apropriados) que deve retornar um resultado pelo modelo de ML previamente treinado e empacotado.
-
-Mais detalhes e exemplos práticos em [Model-as-a-Dependency](model_as_a_dependency.md).
-
-### Model-as-a-Service (MaaS)
-
-Padrão (mais comum) onde o modelo de ML é **empacotado como um serviço independente com um servidor web dedicado** a partir do qual as aplicações enviam requisições através de, por exemplo, uma API REST.
-
-Mais detalhes e exemplos práticos em [Model-as-a-Service](model_as_a_service.md).
-
-### Serverless Servig/Deployment
-
-### (Hybrid-Serving) Federated Learning
-
-Hybrid-Serving, mais conhecido como Federated Learning é uma forma relativamente nova, porém, em alta, de servir modelos aos usuários, principalmente de dispositivos móveis.
-
-Basicamente, trata-se de estratégia onde um modelo genérico é disponibilizado para uma grande quantidade de usuários e, então, cada usuário passa a ter um modelo específico para si que é retreinado (ou especializado) em seus dados.
-
-Mais precisamente:
-
-- Há um modelo genérico no lado do servidor (ou server-side) pré-treinado em dados do mundo real.
-  - Tal modelo é usado como ponto de partida para novos usuários da aplicação.
-
-- Do lado dos usuários (ou user-side), há modelos especializados e únicos para cada usuário (que partem do modelo genérico no server-side), de forma que o retreinamento (i.e. especialização) destes modelos para este usuário ocorre no dispositivo do usuário.
-- Uma vez especializados, os (hiper)parâmetros de cada modelo são enviados para o servidor. Assim, o modelo do servidor é ajustado a fim de que as tendências reais de toda a comunidade de usuários sejam cobertas pelo modelo e, então, este novo modelo passa a ser o novo modelo inicial para todos os usuários.
-  - Para que não haja desvantagens aos usuários, o processo de atualização dos modelos ocorre somente quando o aparelho está ocioso, conectado à uma rede WiFi e carregando.
-  - Ainda, os testes são feitos nos dispositivos. Portanto, o modelo recém-adotado do servidor é enviado aos dispositivos e testado quanto à funcionalidade.
-
-A principal vantagem dessa abordagem é que:
-
-- Os dados pessoais necessários para o treinamento (e teste) nunca saem do domínio do usuario. Enquanto que ainda assim é possível atualizar os modelos com base nas tendências da comunidade.
-  - Em outras palavras, é possível treinar modelos de alta precisão sem ter que armazenar toneladas de dados (provavelmente pessoais) na nuvem.
-
-Porém, a grande desvantagem é que a especialização do modelo é custosa para usuários. Afinal, os modelos de ML são desenvolvidos com conjuntos de dados grandes e homogêneos em um hardware poderoso.
 
 ## Referências
 
 - [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software#model-machine-learning-pipelines)
-
-
+- [Machine Learning Engineering by Andriy Burkov](http://www.mlebook.com/)

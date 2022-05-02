@@ -1,15 +1,7 @@
-@font-face {
-    font-family: 'Monego';
-    src: url('../../docs/stylesheets/monego/Monego-Regular.otf');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     --md-primary-fg-color: #0F52BA;
     --md-primary-fg-color--light: #0F52BA;
     --md-primary-fg-color--dark: #0F52BA;
-    --md-code-font: 'Monego';
 }
 
 @media screen and (min-width: 768px){
@@ -45,12 +37,11 @@
 }
 
 .md-typeset {
-    font-size: 0.75rem;
     line-height: 1.75;
 }
 
 .md-typeset .admonition, .md-typeset details {
-    font-size: 0.72rem;
+    font-size: 0.70rem;
 }
 
 .md-typeset .footnote {
@@ -58,7 +49,6 @@
 }
 
 .md-typeset code {
-    font-size: 0.65rem !important;
     line-height: 1.65 !important;
 }
 

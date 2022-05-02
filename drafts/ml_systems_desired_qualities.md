@@ -1,4 +1,4 @@
-# Qualidades Desejáveis em Projetos de Machine Learning Ponta-a-Ponta
+# Garantindo Manutenibilidade
 
 !!! attention "Attention! Atenção!"
     **(en_US)** This post is a synthesis and translation (into pt_BR) of the post [MLOps Principles](https://ml-ops.org/content/mlops-principles) by [ml-ops.org](https://ml-ops.org/).

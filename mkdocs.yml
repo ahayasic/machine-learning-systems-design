@@ -1,6 +1,6 @@
 # Project Information
 #
-site_name: Machine Learning Systems Design
+site_name: Machine Learning Engineering
 site_url: https://ahayasic.github.io/machine-learning-systems-design
 site_author: Alisson Hayasi da Costa
 # site_description:
@@ -180,9 +180,8 @@ markdown_extensions:
 nav:
   - Início: index.md
   - Sobre o Autor: about.md
-  - Projeto de Sistemas de ML:
-    - Introdução ao Projeto de Sistemas de ML: concepts/introduction_ml_systems_design.md
-    - Qualidades Desejáveis em Projetos de ML: concepts/ml_systems_desired_qualities.md
+  - Machine Learning Engineering:
+    - Sobre Machine Learning Engineering: concepts/machine_learning_engineering.md
     - Considerações de Projeto:
       - Desafios no Desenvolvimento de Modelos: concepts/project_planning/challenges_in_model_development.md
       - IA Centrada em Dados: concepts/project_planning/data_centric_ai.md
@@ -207,11 +206,11 @@ nav:
       - concepts/deployment/index.md
     - Model Serving:
       - concepts/serving/index.md
+      - Static Deployment: concepts/serving/static_deployment.md
       - Model as a Dependency: concepts/serving/model_as_a_dependency.md
       - Model as a Service: concepts/serving/model_as_a_service.md
-      # - (Going Deeper) Model as a Pré-Computação: concepts/serving/index.md
-      # - (Going Deeper) Modelo sob Demanda: concepts/serving/index.md
-      # - (Going Deeper) Federated Learning: concepts/serving/index.md
+      - Serverless Serving: concepts/serving/serverless_serving.md
+      - Federated Learning: concepts/serving/federated_learning.md
     - Monitoramento:
       - concepts/monitoring/index.md
     - MLOps:
@@ -223,4 +222,3 @@ nav:
       - Feature Stores: concepts/mlops/feature_stores.md
       - Model Registry: concepts/mlops/model_registry.md
     - Boas Práticas em ML: concepts/best_practices/good_practices.md
-  - Referências: references.md

@@ -6,16 +6,30 @@ A estratégia Model-as-a-Service é a mais adotada para servir modelos de ML. Ne
 
 Dependendo da implementação, o serviço pode receber tanto batches de dados para inferência, quanto entradas individuais.
 
+![maas-generic](https://raw.githubusercontent.com/ahayasic/machine-learning-systems-design/main/docs/assets/serving/maas-generic.png)
+<p class="post__img_legend">
+  <b>Imagem:</b> Exemplo genérico da arquitetura Model-as-a-Service, onde um dispositivo faz requisições de inferência através de uma interface e então recebe como resposta o resultado da predição.
+</p>
+
 !!! info "Sobre Serviços"
 
     No contexto de arquitetura de software, um serviço é uma unidade de software auto-contida responsável por executar uma tarefa específica. Um serviço deve conter todo o código e dados necessários para executar sua tarefa, sendo implantando (geralmente) em um ambiente totalmente dedicado para si. Demais componentes do software (ou arquitetura) interagem com o serviço através de uma API definida sobre protocolos de comunicação de rede, tais como REST APIs e HTTP/HTTPS.
 
     O propósito principal de um serviço é fornecer, ao sistema, acesso a um conjunto de funcionalidades, de modo que o serviço provedor seja totalmente reutilizável e independente do resto do sistema. Com isso, podemos desenvolver, construir e implantar o serviço de forma totalmente desacoplada dos demais componentes.
 
+
+## Vantagens x Desvantagens
+
+Model as as Service é uma estratégia adequada para a maioria das situações. A principal ressalva é que inferências só estarão disponíveis caso o usuário esteja online.
+
+### Vantagens
+
 As principais vantagens de se implantar modelos de ML como serviços são:
 
 - Integração com o restante do sistema, tecnologias e processos extremamente simplificada.
 - Gerenciamento do modelo simplificado.
+
+### Desvantagens
 
 Já os contras são:
 
@@ -35,12 +49,22 @@ A necessidade de diversas instâncias se dá quando há um grande volume de requ
 
 Note, entretanto, que a necessidade de virtualização prejudica consideravelmente a eficiência de uso dos recursos de cada instância.
 
+![maas-virtual-instances](https://raw.githubusercontent.com/ahayasic/machine-learning-systems-design/main/docs/assets/serving/maas-virtual-instances.png)
+<p class="post__img_legend">
+  <b>Fonte:</b> <a target="_blank" href="http://www.mlebook.com/">Machine Learning Engineering by Andriy Burkov (2020)</a>
+</p>
+
 #### Containers
 Diferente de máquinas virtuais, containers são consideravelmente mais eficientes no uso de recursos, tornando os gastos menores sem perda de desempenho (onde desempenho significa atender uma alta demanda de requisições).
 
 Dessa forma, podemos usar um orquestrador de containers como o Kubernetes para gerenciar um conjunto de containers executando em uma ou mais máquinas dentro de um cluster auto-escalável. Com essa estratégia, podemos reduzir o número de réplicas (ou seja, containers ativos em paralelo) para zero, quando não houver qualquer requisição e aumentar para um número suficientemente grande quando houver um grande volume de requisições.
 
 No geral, a implantação de serviços de predição em containers é a mais indicada.
+
+![maas-containers](https://raw.githubusercontent.com/ahayasic/machine-learning-systems-design/main/docs/assets/serving/maas-containers.png)
+<p class="post__img_legend">
+  <b>Fonte:</b> <a target="_blank" href="http://www.mlebook.com/">Machine Learning Engineering by Andriy Burkov (2020)</a>
+</p>
 
 ### Protocolos de Comunicação
 
@@ -51,13 +75,9 @@ As arquiteturas de API mais comuns são:
 - REST (Representational State Transfer) com protocolo HTTP
 - gRPC (Google Remote Procedure Call) com HTTP 2.0.
 
-## Ferramentas Utilizadas
-
-A implementação de MaaS pode ser feita tanto de forma manual, definindo sua própria API (com Flask ou FasAPI, por exemplo) e demais recursos, quanto através de ferramentas como TensorFlow Serving.
-
 ## Exemplo
 
-A fim de solidificar o conhecimento, seguemum exemplo prático de serving (ou seria implantação? :grin:) de um modelo como um serviço.
+A fim de solidificar o conhecimento, segue um exemplo prático de serving (ou seria implantação? :grin:) de um modelo como um serviço.
 
 ### Model as a Service com FastAPI e Docker
 

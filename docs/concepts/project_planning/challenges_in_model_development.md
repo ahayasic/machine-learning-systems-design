@@ -2,11 +2,15 @@
 
 ## Introdução
 
-O desenvolvimento de modelos é uma tarefa consideravelmente complexa. Porém, não necessariamente por conta do modelo em si (ou seja, qual o melhor modelo para este conjunto de dados?), mas sim por conta dos dados e a combinação entre métricas de desenvolvimento e métricas de negócios.
+Desenvolver modelos tende a ser uma tarefa díficil. Contudo, não pelo treinamento ou escolha de (hiper)parâmetros, mas sim por conta dos dados disponíveis e métricas de negócio que queremos atingir.
 
 ## Principais Problemas
 
-De acordo com Andrew Ng, os principais problemas enfretados no desenvolvimento (e manutenção) de modelos de IA são:
+De acordo com Andrew Ng, os principais problemas enfretados no desenvolvimento (e manutenção) de modelos de ML são:
+
+- Desempenho do modelo em desenvolvimento x em produção
+- Métricas de desenvolvimento x de negócios
+- Dados desbalanceados
 
 ### Desempenho no Desenvolvimento x Em Produção
 
@@ -39,3 +43,7 @@ De fato, o principal problema da construção de modelos de IA na indústria sã
 ### Concept Drift e Data Drift
 
 !!! info "Work in progress"
+
+## Referências
+
+- [Introduction to Machine Learning in Production by Coursera](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)

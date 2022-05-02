@@ -2,12 +2,12 @@
 
 ## Introdução
 
-No contexto de projetos de ML, chamamos de baseline um modelo simples mas que alcança resultados razoáveis no problema que desejamos resolver e cujos resultados são utilizados como ponto de partida (ou seja, define um desempenho mínimo) para o desempenho que queremos alcançar e, consequentemente, a construção de modelos mais complexos.
+No contexto de projetos de ML, um **baseline é um modelo simples mas que alcança resultados razoáveis no problema que desejamos resolver** e cujos resultados são utilizados como ponto de partida (ou seja, define um desempenho mínimo) para o desempenho que queremos alcançar e, consequentemente, a construção de modelos mais complexos.
 
 !!! nota "Nota"
     Por simples, queremos dizer que é um modelo fácil de treinar, implantar e que não exige grande expertise. No geral, modelos assim também são fáceis de explicar e analisar.
 
-De fato, definir um ponto de partida de performance (i.e. baseline level performance) é uma prática muito importante para a evolução de desempenho de um modelo. Afinal, este ponto de partida nos ajuda a definir:
+De fato, definir um ponto de partida de performance **(baseline level performance)** é uma prática muito importante para a evolução de desempenho de um modelo. Afinal, este ponto de partida nos ajuda a definir:
 
 - Qual o desempenho mínimo aceitável para o modelo entrar em produção e o quão factível esse desempenho é.
 - Quais processamentos precisamos fazer nos dados a fim de melhorar sua qualidade.
