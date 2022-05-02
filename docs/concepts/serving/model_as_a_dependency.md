@@ -13,7 +13,9 @@ Neste cenário, para utilizar o modelo, a aplicação só precisa invocar um mé
 
 ## Vantagens x Desvantagens
 
-Model as as Dependency é uma estratégia adequada para modelos simples que precisam estar disponíveis o tempo todo (mesmo se o usuário estiver offline). Também é adequado tanto para inferências quanto retreinamento em batches ou fluxo. Contudo, modelos "pesados" devem ser evitados pelo alto custo de computação no dispositivo do usuário.
+Model as as Dependency é uma estratégia adequada para modelos simples que precisam estar disponíveis o tempo todo (mesmo se o usuário estiver offline). Também é adequado tanto para inferências quanto retreinamento em batches ou fluxo.
+
+Por outro lado, modelos "pesados" devem ser evitados pelo alto custo de computação no dispositivo do usuário.
 
 ### Vantagens
 

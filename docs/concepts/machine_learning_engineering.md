@@ -11,7 +11,7 @@ De acordo com o relatório ["2020 State of Enterprise Machine Learning"](https:/
 
 E isso ocorre pois **apenas uma pequena fração dos sistemas de ML do mundo real são compostos por código de ML**. Um **sistema em produção é composto de diversos componentes**, como, por exemplo: interfaces para que usuários e desenvolvedores interajam com o sistema, infraestrutura para executar a aplicação, engenharia e governança de dados para o gerenciamento e confiabilidade dos dados, entre outros.
 
-![image-20210209144401041](https://raw.githubusercontent.com/ahayasic/machine-learning-systems-design/main/docs/assets/serving/image-20210209144401041.png)
+![image-20210209144401041](https://raw.githubusercontent.com/ahayasic/machine-learning-systems-design/main/docs/assets/image-20210209144401041.png)
 <p class="post__img_legend">
   <b>Fonte:</b> <a target="_blank" href="https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015): 2503-2511.</a>
 </p>
